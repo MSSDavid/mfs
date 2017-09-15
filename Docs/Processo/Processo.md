@@ -69,10 +69,10 @@ Nesta atividade um integrante do time Scrum deverá escolher algum item do backl
 
 
 #### Desenvolver os testes
-Nesta atividade serão planejados os testes necessários para validar o item que está sendo desenvolvido. Poderão ser definidos testes de caixa preta e caixa branca. No caso de testes de caixa branca, deverão ser desenvolvidos testes unitários, então as classes e métodos que serão produzidos nessa atividade deverão ser definidos ainda na fase dos testes, para que os mesmos possam ser programados antes do próprio código. Nos testes de caixa preta, poderão ser definidos testes de usuário.
+Nesta atividade serão planejados os testes necessários para validar o item que está sendo desenvolvido. Poderão ser definidos testes de caixa preta e caixa branca. No caso de testes de caixa branca, deverão ser desenvolvidos testes unitários, então as classes e métodos que serão produzidos nessa atividade deverão ser definidos ainda na fase dos testes, para que os mesmos possam ser programados antes do próprio código. Nos testes de caixa preta, poderão ser definidos testes de usuário.  
 **Responsável:** Integrante Scrum Team  
-**Entradas:** Item a ser desenvolvido (atividade anterior)
-**Saídas:** Testes planejados e definidos
+**Entradas:** Item a ser desenvolvido (atividade anterior)  
+**Saídas:** Testes planejados e definidos  
 
 #### Codificar
 Nesta atividade será realizado o desenvolvimento do item escolhido, com o objetivo de passar nos testes definidos na atividade anterior.  

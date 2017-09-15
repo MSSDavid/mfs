@@ -33,21 +33,27 @@ O incremento é a soma de todos os itens do Backlog do Produto que foram complet
 #### Relatório de Melhorias no Processo
 Ao final de cada sprint é realizado uma renunião entre o Scrum Team para discutir os pontos que funcionaram e os que não funcionaram durante a Sprint. Caso tenha ocorrido problemas durante a sprint, o processo deverá ser atualizado para que esses problemas sejam evitados. Nesse documento deverá ser registrado as melhorias que deverão ser feitas no processo caso existam melhorias definidas pelo time.
 
+
+
 ### Atividades
 #### Introduzir da Visão do Produto
-Nesta atividade o produto que deverá ser desenvolvido deverá ser definido o Escopo do mesmo, então as funcionalidades que deverão existir no produto deverão ser devidamentes documentadas no Product Backlog
-##### Responsável: Product Owner
-##### Entradas: Não se aplica
-##### Saídas: Product Backlog
+Nesta atividade o produto que deverá ser desenvolvido deverá ser definido o Escopo do mesmo, então as funcionalidades que deverão existir no produto deverão ser devidamentes documentadas no Product Backlog.  
+**Responsável:** Product Owner  
+**Entradas:** Não se aplica  
+**Saídas:** Product Backlog  
+
+
 
 #### Planejar a Sprint
-Nessa etapa uma reunião de 3 horas deverá ser feita pelo time, o backlog do produto deverá ser discutido para que seja definido quais itens do Backlog do produto serão implantados na próxima sprint. Os itens escolhidos deverão ser refinados em atividades menores, para que as mesmas sejam classificadas em complexidade e tempo, com os itens identificados e classificados os mesmos deverão ser registrados como o Backlog da Sprint.
-##### Responsável: Scrum Team
-##### Entradas: Product Backlog
-##### Saídas: Sprint Backlog
+Nessa etapa uma reunião de 3 horas deverá ser feita pelo time, o backlog do produto deverá ser discutido para que seja definido quais itens do Backlog do produto serão implantados na próxima sprint. Os itens escolhidos deverão ser refinados em atividades menores, para que as mesmas sejam classificadas em complexidade e tempo, com os itens identificados e classificados os mesmos deverão ser registrados como o Backlog da Sprint.  
+**Responsável:** Scrum Team  
+**Entradas:** Product Backlog  
+**Saídas:** Sprint Backlog  
+
+
 
 #### Selecionar um item no backlog da sprint
-Nesta atividade um integrante do time Scrum deverá escolher algum item do backlog para sprint para que o mesmo seja desenvolvido. Após fazer essa escolha o mesmo estará assumindo a responsabilidade de desenvolver esse item. Essa atividade deve ser executada sempre após o planejamento da print e após a finalização do item que está sendo desenvolvido, ela deve ser executada por todos os membros do time Scrum até que seja "limpo" o backlog da sprint ou então até o final do prazo de execução da sprint.
-##### Responsável: Integrante Scrum Team
-##### Entradas: Sprint Backlog
-##### Saídas: Item a ser desenvolvido
+Nesta atividade um integrante do time Scrum deverá escolher algum item do backlog para sprint para que o mesmo seja desenvolvido. Após fazer essa escolha o mesmo estará assumindo a responsabilidade de desenvolver esse item. Essa atividade deve ser executada sempre após o planejamento da print e após a finalização do item que está sendo desenvolvido, ela deve ser executada por todos os membros do time Scrum até que seja "limpo" o backlog da sprint ou então até o final do prazo de execução da sprint.  
+**Responsável:** Integrante Scrum Team  
+**Entradas:** Sprint Backlog  
+**Saídas:** Item a ser desenvolvido  

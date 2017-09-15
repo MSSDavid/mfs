@@ -5,7 +5,7 @@ O processo abaixo descreve como será desenvolvido o projeto de Métodos e Ferra
 ## Processo BMPN
 Abaixo está o diagrama BPMN do processo desenvolvido:  
 
-![processobpmn 1](https://user-images.githubusercontent.com/19656573/30466134-fb3d2176-99b1-11e7-9247-08986fd96bb9.jpg)
+![processobpmn](https://user-images.githubusercontent.com/19656573/30492048-9ceb8fd6-9a15-11e7-873c-c6eefbe41f19.jpg)
 
 ### Papéis
 #### Product Owner

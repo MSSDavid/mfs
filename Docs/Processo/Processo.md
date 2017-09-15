@@ -1,6 +1,6 @@
 # Processo de Desenvolvimento
 
-O processo abaixo descreve como será desenvolvido o projeto de Métodos e Ferramentas. O mesmo foi criado baseado no modelo ágil Scrum, mas com algumas personalizações para adequação ao tempo disponível da equipe e também ao tipo de projeto que está sendo desenvolvido.
+O processo abaixo descreve como será desenvolvido o projeto de Métodos e Ferramentas. O mesmo foi criado baseado no modelo ágil Scrum, utilizando uma metodoligia de desenvolvimento orientado a testes, entretanto o modelo Scrum foi aplicado com algumas personalizações para adequação ao tempo disponível da equipe e também ao tipo de projeto que está sendo desenvolvido.
 
 ## Processo BMPN
 Abaixo está o diagrama BPMN do processo desenvolvido:  
@@ -50,10 +50,21 @@ Nessa etapa uma reunião de 3 horas deverá ser feita pelo time, o backlog do pr
 **Entradas:** Product Backlog  
 **Saídas:** Sprint Backlog  
 
-
+#### Processo de Desenvolvimento
+Este é um subprocesso que é executado uma vez para cada item do backlog da sprint dentro do prazo definido da sprint. A execução desse subproceso é divida em várias atividades, essas atividades são:  
+**- Selecionar um item no backlog da sprint**  
+**- Desenvolver os testes**  
+**- Codificar**  
+**- Executar os testes**  
+**- Corrigir os erros**  
+Estas atividades estarão descritas com maior detalhes abaixo.
 
 #### Selecionar um item no backlog da sprint
 Nesta atividade um integrante do time Scrum deverá escolher algum item do backlog para sprint para que o mesmo seja desenvolvido. Após fazer essa escolha o mesmo estará assumindo a responsabilidade de desenvolver esse item. Essa atividade deve ser executada sempre após o planejamento da print e após a finalização do item que está sendo desenvolvido, ela deve ser executada por todos os membros do time Scrum até que seja "limpo" o backlog da sprint ou então até o final do prazo de execução da sprint.  
 **Responsável:** Integrante Scrum Team  
 **Entradas:** Sprint Backlog  
 **Saídas:** Item a ser desenvolvido  
+
+
+#### Desenvolver os testes
+Nesta atividade ser

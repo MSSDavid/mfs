@@ -67,4 +67,33 @@ Nesta atividade um integrante do time Scrum deverá escolher algum item do backl
 
 
 #### Desenvolver os testes
-Nesta atividade ser
+Nesta atividade serão planejados os testes necessários para validar o item que está sendo desenvolvido. Poderão ser definidos testes de caixa preta e caixa branca. No caso de testes de caixa branca, deverão ser desenvolvidos testes unitários, então as classes e métodos que serão produzidos nessa atividade deverão ser definidos ainda na fase dos testes, para que os mesmos possam ser programados antes do próprio código. Nos testes de caixa preta, poderão ser definidos testes de usuário.
+**Responsável:** Integrante Scrum Team  
+**Entradas:** Item a ser desenvolvido (atividade anterior)
+**Saídas:** Testes planejados e definidos
+
+#### Codificar
+Nesta atividade será realizado o desenvolvimento do item escolhido, com o objetivo de passar nos testes definidos na atividade anterior.
+**Responsável:** Integrante Scrum Team  
+**Entradas:** Item a ser desenvolvido e testes definidos para o item
+**Saídas:** Código desenvolvido
+
+#### Executar os testes
+Nesta atividade os testes planejados anteriormente deverão ser executador no código desenvolvido na atividade anterior, após isso deverá ser definido se os testes foram satisfeitos ou não pelo código desenvolvido.
+**Responsável:** Integrante Scrum Team  
+**Entradas:** Testes e código fonte do item (desenvolvido ou corrigido)
+**Saídas:** Resultado do teste
+
+#### Corrigir os erros
+Caso aconteça do código não passar nos testes, essa atividade deverá ser realizada. Nela o código é corrigido para que então ele consiga satisfazer os testes em uma nova tentativa. Após essa atividade a atividade de executar os testes (anterior) deverá ser realizada novamente.
+**Responsável:** Integrante Scrum Team  
+**Entradas:** Resultado dos testes e Código fonte defeituoso
+**Saídas:** Código fonte corrigido
+
+#### Monitoramento do Sprint Backlog
+Esta atividade deverá ser executada ao mesmo tempo em que o processo de desenvolvimento ocorre, o objetivo desta atividade é assegurar que o backlog da sprint será cumprido dentro do prazo de duração da sprint. Então o backlog da sprint e o processo de desenvolvimento precisa ser monitorado para verificar se os itens estão sendo desenvolvidos no tempo definido para eles.
+**Responsável:** Scrum Master 
+**Entradas:** Backlog da Sprint e Processo de desenvolvimento em andamento
+**Saídas:** Status de tempo da Sprint (atrasado, dentro do prazo ou adiantado)
+
+#### Realizar uma reunião semanal

@@ -45,7 +45,7 @@ Nesta atividade o produto que deverá ser desenvolvido deverá ser definido o Es
 
 
 #### Planejar a Sprint
-Nessa etapa uma reunião de 3 horas deverá ser feita pelo time, o backlog do produto deverá ser discutido para que seja definido quais itens do Backlog do produto serão implantados na próxima sprint, esses itens deverão ser escolhidos de acordo com a importância dos mesmos para o projeto. Os itens escolhidos deverão ser refinados em atividades menores, para que as mesmas sejam classificadas em complexidade e tempo, com os itens identificados e classificados os mesmos deverão ser registrados como o Backlog da Sprint.
+Nessa etapa uma reunião de 3 horas deverá ser feita pelo time, o backlog do produto deverá ser discutido para que seja definido quais itens do Backlog do produto serão implantados na próxima sprint, esses itens deverão ser escolhidos de acordo com a importância dos mesmos para o projeto. Os itens escolhidos deverão ser refinados em atividades menores, para que as mesmas sejam classificadas em complexidade e tempo, com os itens identificados e classificados os mesmos deverão ser registrados como o Backlog da Sprint.  
 **Responsável:** Scrum Team  
 **Entradas:** Product Backlog  
 **Saídas:** Sprint Backlog  

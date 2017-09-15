@@ -36,7 +36,7 @@ Ao final de cada sprint é realizado uma renunião entre o Scrum Team para discu
 
 
 ### Atividades
-#### Introduzir da Visão do Produto
+#### Introduzir a Visão do Produto
 Nesta atividade o produto que deverá ser desenvolvido deverá ser definido o Escopo do mesmo, então as funcionalidades que deverão existir no produto deverão ser devidamentes documentadas no Product Backlog.  
 **Responsável:** Product Owner  
 **Entradas:** Não se aplica  
@@ -93,7 +93,7 @@ Caso aconteça do código não passar nos testes, essa atividade deverá ser rea
 **Saídas:** Código fonte corrigido  
 
 
-#### Monitoramento do Sprint Backlog
+#### Monitorar o Sprint Backlog
 Esta atividade deverá ser executada ao mesmo tempo em que o processo de desenvolvimento ocorre, o objetivo desta atividade é assegurar que o backlog da sprint será cumprido dentro do prazo de duração da sprint. Então o backlog da sprint e o processo de desenvolvimento precisa ser monitorado para verificar se os itens estão sendo desenvolvidos no tempo definido para eles.  
 **Responsável:** Scrum Master  
 **Entradas:** Backlog da Sprint e Processo de desenvolvimento em andamento  
@@ -114,7 +114,7 @@ Esta atividade será executada apenas ao final do prazo de execução da sprint 
 **Saídas:** Backlog atualizado do Produto (se houver), Incremento do Produto  
 
 
-#### Restrospectiva da Sprint
+#### Realizar a restrospectiva da Sprint
 Nesta atividade o time Scrum deverá se reunir e discutir o que deu certo e o que não deu certo na execução da sprint finalizada. Os pontos negativos deverão ser trabalhos para que na próxima sprint esses pontos sejam reduzidos. Caso alguma alteração deva ser feito no processo definido deveraá ser produzido o Relatório de Melhoria de Processo.  
 **Responsável:** Scrum Team  
 **Entradas:** Não se aplica  

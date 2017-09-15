@@ -6,6 +6,6 @@ O projeto de classificados será desenvolvido de acordo com um processo personal
 
 ## Integrantes
 [Samuel Rocha Costa](https://github.com/samuelrcosta)  
-[João Pedro Salgado](https://github.com/joaopsalgado)
-[David Matheus](https://github.com/MSSDavid)
+[João Pedro Salgado](https://github.com/joaopsalgado)  
+[David Matheus](https://github.com/MSSDavid)  
 [Marcus Mittra](https://github.com/MitraTheAngrod)

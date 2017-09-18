@@ -7,6 +7,35 @@ Abaixo está o diagrama BPMN do processo desenvolvido:
 
 ![processobpmn](https://user-images.githubusercontent.com/19656573/30492048-9ceb8fd6-9a15-11e7-873c-c6eefbe41f19.jpg)
 
+## Métodos e Ferramentas
+### Método do Processo
+Para o desenvolvimento do projeto conforme falado acima, será utilizado o método de desenvolvimento ágil Scrum como base do processo.
+
+### Linguagem de Programação e IDE de desenvolvimento
+Para a codificação será utilizado o [PHP 7.0](https://secure.php.net/) e a IDE [Cloud9](https://c9.io/) para o desenvolvimento integrado com o GitHub.
+
+### Testes e Integração Contínua
+Na codificação e execução dos testes unitários será utilizado o [PHPUnit](https://phpunit.de/index.html), para CI será utilizado o [Shippable](https://www.shippable.com/), no qual já executa os testes programados em cada build do projeto.
+
+### Controle de Configuração
+O [GitHub](https://github.com) será a ferramenta utilizada para controle de configuração do projeto.
+
+### Comunicação
+Para a comunicação entre os integrantes da equipe, será utilizado o [Whatsapp](https://www.whatsapp.com/?l=pt_br) e as runiões que ocorrem a cada aula da disciplina.
+
+### Banco de Dados
+A ferramenta de banco de dados que será utilizada pela aplicação será o [MySql](https://www.mysql.com/).
+
+### Hospedagem
+O serviço de hospedagem para o projeto ainda não foi definido. Será utilizado algum gratuito que funcione com Php e MySql.
+
+### Design e Scripts
+O projeto irá utilizar recursos de html5, css3 e javascript para desenvolvimento do design e scripts. O [Bootstrap](http://getbootstrap.com/) será utilizado de apoio para a construção do layout das páginas e para auxiliar a geração de scripts será utilizado o [jQuery](https://jquery.com/).
+
+### Outras Ferramentas
+* Para construção do diagrama BPMN do processo foi utilizado o [Draw.io](draw.io)
+* Os documentos desenvolvidos no projeto serão feitos em MarkDown (.md)
+
 ### Papéis
 #### Product Owner
 O Product Owner é a pessoa que entende o domínio do problema e os requisitos do projeto. É responsável pelo desenvolvimento do Product Backlog, esta pessoa é responsável por tirar dúvidas a respeito do problema e também por validar os itens desenvolvidos nas sprints.

@@ -54,7 +54,7 @@ Vendedor
 ### Ação
 Criar anúncio
 ### Motivo da Ação
-Para que o vendedor possa publicar um anúncio, preciso criar um anúncio próprio.
+Para publicar um anúncio, é necessário cadastrá-lo antes.
 
 ## 8. Eu como vendedor desejo excluir meu próprio anúncio no sistema.
 ### Tipo do Usuário
@@ -62,7 +62,7 @@ Vendedor
 ### Ação
 Excluir anúncio
 ### Motivo da Ação
-Para que o vendedor possa excluir uma publicação, preciso excluir o anúncio publicado.
+Caso o anúncio seja finalizado, preciso excluir o mesmo.
 
 ## 9. Eu como vendedor desejo editar meu próprio anúncio no sistema.
 ### Tipo do Usuário
@@ -70,7 +70,7 @@ Vendedor
 ### Ação
 Editar anúncio
 ### Motivo da Ação
-Para que o vendedor possa editar uma publicação, preciso editar o anúncio que está publicado.
+Para manter o anúncio atualizado, preciso editar o mesmo.
 
 ## 10. Eu como vendedor desejo visualizar meu próprio anúncio no sistema.
 ### Tipo do Usuário
@@ -78,39 +78,39 @@ Vendedor
 ### Ação
 Visualizar anúncio
 ### Motivo da Ação
-Para que veja os anúncios publicados, preciso visualizar cada anúncio que foi publicado pelo vendedor.
+Para que visualizar todos os anúncios publicados pelo vendedor.
 
-## 11. Eu como usuário desejo pesquisar por anúncios no sistema.
-### Tipo do Usuário
-Usuário
-### Ação
-Pesquisar anúncio
-### Motivo da Ação
-Para que veja os anúncios publicados, preciso pesquisar por anúncios publicados.
-
-## 12. Eu como usuário desejo escolher o filtro de pesquisa no sistema
-### Tipo do Usuário
-Usuário
-### Ação
-Filtrar anúncio
-### Motivo da Ação
-Para que veja os anúncios publicados, preciso filtrar os anúncios de acordo com a preferência.
-
-## 13. Eu como usuário desejo expandir os anúncios no sistema.
-### Tipo do Usuário
-Usuário
-### Ação
-Expandir anúncio
-### Motivo da Ação
-Para que veja os anúncios publicados, preciso expandir os anúncios pesquisados.
-
-## 14. Eu como usuário desejo visualizar todos os anúncios no sistema.
+## 11. Eu como usuário desejo visualizar todos os anúncios no sistema.
 ### Tipo do Usuário
 Usuário
 ### Ação
 Visualizar anúncio
 ### Motivo da Ação
-Para que veja os anúncios publicados, preciso visualizar cada anúncio que foi publicado pelo vendedor.
+Para ver os anúncios publicados pelos vendedores do sistema.
+
+## 12. Eu como usuário desejo pesquisar por anúncios no sistema.
+### Tipo do Usuário
+Usuário
+### Ação
+Pesquisar anúncio
+### Motivo da Ação
+Para que veja os anúncios de meu interesse preciso digitar uma pesquisa.
+
+## 13. Eu como usuário desejo escolher o filtro de pesquisa no sistema
+### Tipo do Usuário
+Usuário
+### Ação
+Filtrar anúncio
+### Motivo da Ação
+Para encontrar apenas anúncio de meu interesse, gostaria de realizar filtros na pesquisa de anúncio.
+
+## 14. Eu como usuário desejo expandir os anúncios no sistema.
+### Tipo do Usuário
+Usuário
+### Ação
+Expandir anúncio
+### Motivo da Ação
+Para que veja maiores detalhes sobre o anúncio e o anunciante (vendedor).
 
 ## 15. Eu como usuário desejo enviar um e-mail ao vendedor.
 ### Tipo do Usuário
@@ -119,5 +119,3 @@ Usuário
 Enviar e-mail
 ### Motivo da Ação
 Para que tenha uma comunicação entre vendedor e usuário, preciso que o usuário consiga enviar um e-mail ao vendedor referente.
-
-

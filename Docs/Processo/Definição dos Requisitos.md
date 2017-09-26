@@ -4,7 +4,7 @@
 ### Tipo de usuário
 Vendedor
 ### Ação
-Realizar seu cadastro no sistema
+Realizar cadastro no sistema
 ### Motivo da Ação
 Para realizar um anúncio no sistema, preciso fazer o meu cadastro pessoal.
 
@@ -12,7 +12,7 @@ Para realizar um anúncio no sistema, preciso fazer o meu cadastro pessoal.
 ### Tipo de usuário
 Vendedor
 ### Ação
-Editar seu cadastro no sistema
+Edita cadastro no sistema
 ### Motivo 
 Para realizar um anúncio no sistema, preciso do meu cadastro pessoal atualizado.
 
@@ -20,7 +20,7 @@ Para realizar um anúncio no sistema, preciso do meu cadastro pessoal atualizado
 ### Tipo do usuário
 Vendedor
 ### Ação
-Realizar meu login no sistema
+Realizar login no sistema
 ### Motivo da Ação
 Para ter maior segurança, o sistema é acessado apenas com um Email e senha.
 
@@ -28,7 +28,7 @@ Para ter maior segurança, o sistema é acessado apenas com um Email e senha.
 ### Tipo do Usuário
 Vendedor
 ### Ação
-Excluir meu Usuário
+Excluir Usuário
 ### Motivo da Ação
 Desativar sua conta, caso o vendedor não tenha mais interesse de usar o sistema.
 

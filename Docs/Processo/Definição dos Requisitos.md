@@ -118,4 +118,4 @@ Usuário
 ### Ação
 Enviar e-mail
 ### Motivo da Ação
-Para que tenha uma comunicação entre vendedor e usuário, preciso que o usuário consiga enviar um e-mail ao vendedor referente.
+Para agilizar o contato com o vendedor, preciso enviar um email de contato para o mesmo.

@@ -72,13 +72,13 @@ Editar anúncio
 ### Motivo da Ação
 Para manter o anúncio atualizado, preciso editar o mesmo.
 
-## 10. Eu como vendedor desejo visualizar meu próprio anúncio no sistema.
+## 10. Eu como vendedor desejo visualizar meus próprios anúncios no sistema.
 ### Tipo do Usuário
 Vendedor
 ### Ação
-Visualizar anúncio
+Visualizar anúncios
 ### Motivo da Ação
-Para que visualizar todos os anúncios publicados pelo vendedor.
+Para visualizar todos os anúncios que foram publicados pelo vendedor.
 
 ## 11. Eu como usuário desejo visualizar todos os anúncios no sistema.
 ### Tipo do Usuário
@@ -86,7 +86,7 @@ Usuário
 ### Ação
 Visualizar anúncio
 ### Motivo da Ação
-Para ver os anúncios publicados pelos vendedores do sistema.
+Para ver os anúncios publicados por todos os vendedores cadastrados no sistema.
 
 ## 12. Eu como usuário desejo pesquisar por anúncios no sistema.
 ### Tipo do Usuário

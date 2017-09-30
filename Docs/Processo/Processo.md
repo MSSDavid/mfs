@@ -5,7 +5,7 @@ O processo abaixo descreve como será desenvolvido o projeto de Métodos e Ferra
 ## Processo BMPN
 Abaixo está o diagrama BPMN do processo desenvolvido:  
 
-![processobpmn](https://user-images.githubusercontent.com/19656573/30492048-9ceb8fd6-9a15-11e7-873c-c6eefbe41f19.jpg)
+![processobpmn](https://user-images.githubusercontent.com/19656573/31049426-087bcb5e-a609-11e7-8212-8664741a784e.jpg)
 
 ## Métodos e Ferramentas
 ### Método do Processo

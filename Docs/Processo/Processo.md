@@ -1,11 +1,13 @@
 # Processo de Desenvolvimento
+##### _v.1.1_
 
 O processo abaixo descreve como será desenvolvido o projeto de Métodos e Ferramentas. O mesmo foi criado baseado no modelo ágil Scrum, utilizando uma metodoligia de desenvolvimento orientado a testes, entretanto o modelo Scrum foi aplicado com algumas personalizações para adequação ao tempo disponível da equipe e também ao tipo de projeto que está sendo desenvolvido.
 
 ## Processo BMPN
 Abaixo está o diagrama BPMN do processo desenvolvido:  
 
-![processobpmn](https://user-images.githubusercontent.com/19656573/31049426-087bcb5e-a609-11e7-8212-8664741a784e.jpg)
+![processobpmn_v1 1](https://user-images.githubusercontent.com/19656573/31104112-5d130232-a7b1-11e7-8bb0-64bd582e56ae.jpg)  
+
 
 ## Métodos e Ferramentas
 ### Método do Processo
@@ -82,32 +84,33 @@ Nessa etapa uma reunião de 3 horas deverá ser feita pelo time, o backlog do pr
 
 #### Processo de Desenvolvimento
 Este é um subprocesso que é executado uma vez para cada item do backlog da sprint dentro do prazo definido da sprint. A execução desse subproceso é divida em várias atividades, essas atividades são:  
-**- Selecionar um item no backlog da sprint**  
+**- Executar as tarefas de planejamento / estruturação**  
 **- Desenvolver os testes**  
 **- Codificar**  
 **- Executar os testes**  
-**- Corrigir os erros**  
+**- Verificar a definição de pronto das tarefas**  
+**- Corrigir problemas**  
 Estas atividades estarão descritas com maior detalhes abaixo.
 
 
-#### Selecionar um item no backlog da sprint
-Nesta atividade um integrante do time Scrum deverá escolher algum item do backlog para sprint para que o mesmo seja desenvolvido. Após fazer essa escolha o mesmo estará assumindo a responsabilidade de desenvolver esse item. Essa atividade deve ser executada sempre após o planejamento da print e após a finalização do item que está sendo desenvolvido, ela deve ser executada por todos os membros do time Scrum até que seja "limpo" o backlog da sprint ou então até o final do prazo de execução da sprint.  
+#### Executar as tarefas de planejamento / estruturação
+Em todas os sprints backlogs existem algumas tarefas que não envolvem testes, codificação, etc, em sua maioria são tarefas necessárias para que as tarefas de testes e codificação sejam iniciadas, como por exemplo desenvolvimento dos diagramas UML, estruturação de banco de dados, etc.  
 **Responsável:** Integrante Scrum Team  
 **Entradas:** Sprint Backlog  
-**Saídas:** Item a ser desenvolvido  
+**Saídas:** Tarefas realizadas  
 
 
 #### Desenvolver os testes
-Nesta atividade serão planejados os testes necessários para validar o item que está sendo desenvolvido. Poderão ser definidos testes de caixa preta e caixa branca. No caso de testes de caixa branca, deverão ser desenvolvidos testes unitários, então as classes e métodos que serão produzidos nessa atividade deverão ser definidos ainda na fase dos testes, para que os mesmos possam ser programados antes do próprio código. Nos testes de caixa preta, poderão ser definidos testes de usuário.  
+Nesta atividade serão planejados os testes necessários para validar os itens que serão desenvolvidos na sprint. Poderão ser definidos testes de caixa preta e caixa branca. No caso de testes de caixa branca, deverão ser desenvolvidos testes unitários, então as classes e métodos que serão produzidos nessa atividade deverão ser definidos ainda na fase dos testes, para que os mesmos possam ser programados antes do próprio código. Nos testes de caixa preta, poderão ser definidos testes de usuário.  
 **Responsável:** Integrante Scrum Team  
-**Entradas:** Item a ser desenvolvido (atividade anterior)  
+**Entradas:**   Tarefas do sprint backlog   
 **Saídas:** Testes planejados e definidos  
 
 #### Codificar
-Nesta atividade será realizado o desenvolvimento do item escolhido, com o objetivo de passar nos testes definidos na atividade anterior.  
+Nesta atividade será realizado o desenvolvimento das tarefas escolhidas, com o objetivo de passar nos testes definidos para essas tarefas. Durante essa atividade os testes deverão ser verificados (e corrigidos caso necessário), para evitar que seja dada atenção apenas no final do desenvolvimento dos códigos.  
 **Responsável:** Integrante Scrum Team  
-**Entradas:** Item a ser desenvolvido e testes definidos para o item  
-**Saídas:** Código desenvolvido  
+**Entradas:** Tarefas do sprint babklog e testes  
+**Saídas:** Códigos desenvolvidos  
 
 #### Executar os testes
 Nesta atividade os testes planejados anteriormente deverão ser executador no código desenvolvido na atividade anterior, após isso deverá ser definido se os testes foram satisfeitos ou não pelo código desenvolvido.  
@@ -115,15 +118,21 @@ Nesta atividade os testes planejados anteriormente deverão ser executador no c�
 **Entradas:** Testes e código fonte do item (desenvolvido ou corrigido)  
 **Saídas:** Resultado do teste  
 
-#### Corrigir os erros
-Caso aconteça do código não passar nos testes, essa atividade deverá ser realizada. Nela o código é corrigido para que então ele consiga satisfazer os testes em uma nova tentativa. Após essa atividade a atividade de executar os testes (anterior) deverá ser realizada novamente.  
+#### Verificar a definição de pronto das tarefas
+Os requisitos que estão definidos no [documento de definição de pronto](https://github.com/MSSDavid/) deverão ser verificados, para validar se as tarefas estão prontas ou não.  
 **Responsável:** Integrante Scrum Team  
-**Entradas:** Resultado dos testes e Código fonte defeituoso  
+**Entradas:** Resultado das tarefas  
 **Saídas:** Código fonte corrigido  
+
+#### Corrigir problemas
+Caso a atividade de verificação da definição de pronto não passe na validação, os problemas encontrados deverão ser corrigidos para que as tarefas da Sprint Backlog estejam prontas de acordo com o [documento de definição de pronto]().  
+**Responsável:** Integrante Scrum Team  
+**Entradas:** Resultado da tarefa Verificar a definição de pronto   
+**Saídas:** Problemas corrigidos  
 
 
 #### Monitorar o Sprint Backlog
-Esta atividade deverá ser executada ao mesmo tempo em que o processo de desenvolvimento ocorre, o objetivo desta atividade é assegurar que o backlog da sprint será cumprido dentro do prazo de duração da sprint. Então o backlog da sprint e o processo de desenvolvimento precisa ser monitorado para verificar se os itens estão sendo desenvolvidos no tempo definido para eles.  
+Esta atividade deverá ser executada ao mesmo tempo em que o processo de desenvolvimento ocorre, o objetivo desta atividade é assegurar que o backlog da sprint será cumprido dentro do prazo de duração da sprint.  
 **Responsável:** Scrum Master  
 **Entradas:** Backlog da Sprint e Processo de desenvolvimento em andamento  
 **Saídas:** Status de tempo da Sprint (atrasado, dentro do prazo ou adiantado)  

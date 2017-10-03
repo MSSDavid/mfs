@@ -9,7 +9,7 @@ Abaixo está o diagrama BPMN do processo desenvolvido:
 ![processobpmn_v1 1](https://user-images.githubusercontent.com/19656573/31104112-5d130232-a7b1-11e7-8bb0-64bd582e56ae.jpg)  
 
 
-## Métodos e Ferramentas
+## Métodos, Ferramentas e Técnicas
 ### Método do Processo
 Para o desenvolvimento do projeto conforme falado acima, será utilizado o método de desenvolvimento ágil Scrum como base do processo.
 
@@ -24,6 +24,9 @@ O [GitHub](https://github.com) será a ferramenta utilizada para controle de con
 
 ### Comunicação
 Para a comunicação entre os integrantes da equipe, será utilizado o [Whatsapp](https://www.whatsapp.com/?l=pt_br) e as runiões que ocorrem a cada aula da disciplina.
+
+### Atribuição de Esforço e Tempo
+Para definir e controlar o esforço e tempo será utilizado a técnica de Plannig Poker para fazer essa verificação dentro do grupo. Em uma primeira sprint é coletado uma média inicial de pontos por sprint. Para usar essa técnica iremos usar o [PlanningPoker.com](https://www.planningpoker.com/).  
 
 ### Banco de Dados
 A ferramenta de banco de dados que será utilizada pela aplicação será o [MySql](https://www.mysql.com/).
@@ -119,13 +122,13 @@ Nesta atividade os testes planejados anteriormente deverão ser executador no c�
 **Saídas:** Resultado do teste  
 
 #### Verificar a definição de pronto das tarefas
-Os requisitos que estão definidos no [documento de definição de pronto](https://github.com/MSSDavid/) deverão ser verificados, para validar se as tarefas estão prontas ou não.  
+Os requisitos que estão definidos no [documento de definição de pronto](https://github.com/MSSDavid/mfs/blob/master/Docs/Defini%C3%A7%C3%A3o%20de%20Pronto.md) deverão ser verificados, para validar se as tarefas estão prontas ou não.  
 **Responsável:** Integrante Scrum Team  
 **Entradas:** Resultado das tarefas  
 **Saídas:** Código fonte corrigido  
 
 #### Corrigir problemas
-Caso a atividade de verificação da definição de pronto não passe na validação, os problemas encontrados deverão ser corrigidos para que as tarefas da Sprint Backlog estejam prontas de acordo com o [documento de definição de pronto]().  
+Caso a atividade de verificação da definição de pronto não passe na validação, os problemas encontrados deverão ser corrigidos para que as tarefas da Sprint Backlog estejam prontas de acordo com o [documento de definição de pronto](https://github.com/MSSDavid/mfs/blob/master/Docs/Defini%C3%A7%C3%A3o%20de%20Pronto.md).  
 **Responsável:** Integrante Scrum Team  
 **Entradas:** Resultado da tarefa Verificar a definição de pronto   
 **Saídas:** Problemas corrigidos  

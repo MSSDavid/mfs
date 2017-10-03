@@ -1,4 +1,5 @@
 # Histórias de Usuário - Classi-O
+##### _v.1.1_
 
 ## 1. Eu como vendedor desejo realizar um cadastro no sistema.
 ### Tipo de usuário
@@ -111,11 +112,3 @@ Usuário
 Expandir anúncio
 ### Motivo da Ação
 Para que veja maiores detalhes sobre o anúncio e o anunciante (vendedor).
-
-## 15. Eu como usuário desejo enviar um e-mail ao vendedor.
-### Tipo do Usuário
-Usuário
-### Ação
-Enviar e-mail
-### Motivo da Ação
-Para agilizar o contato com o vendedor, preciso enviar um email de contato para o mesmo.

@@ -1,4 +1,5 @@
 # Processo de Desenvolvimento
+##### _v.1.1_
 
 O processo abaixo descreve como será desenvolvido o projeto de Métodos e Ferramentas. O mesmo foi criado baseado no modelo ágil Scrum, utilizando uma metodoligia de desenvolvimento orientado a testes, entretanto o modelo Scrum foi aplicado com algumas personalizações para adequação ao tempo disponível da equipe e também ao tipo de projeto que está sendo desenvolvido.
 

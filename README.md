@@ -5,10 +5,10 @@ O Classi-O é um projeto desenvolvido na disciplina de Métodos e Ferramentas do
 O projeto de classificados será desenvolvido de acordo com um processo personalizado baseado no Scrum. Para acessar mais detalhes do processo clique [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Processo/Processo.md)
 
 ### Cronograma
-O cronograma do projeto está detalhado [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Processo/cronograma.md)
+O cronograma do projeto está detalhado [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/cronograma.md)
 
 ## Backlog do Produto
-As histórias de usuários referente ao backlog do produto, pode ser acessado [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Processo/Defini%C3%A7%C3%A3o%20dos%20Requisitos.md)
+As histórias de usuários referente ao backlog do produto, pode ser acessado [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Hist%C3%B3rias%20de%20Usu%C3%A1rio.md)
 
 
 ## Integrantes

@@ -2,4 +2,5 @@
 
 ## Classe Usuário
 O Digrama da classe usuário está representado abaixo:
-![diagrama de classes - usuario](https://github.com/MSSDavid/mfs/blob/master/Docs/Anexos/Diagrama-de-Classes-Usu%C3%A1rio.PNG?raw=true)
+
+![diagrama de usuarios](https://user-images.githubusercontent.com/19656573/31367089-50ea8dd2-ad4b-11e7-8ef1-76ae861003f7.jpg)

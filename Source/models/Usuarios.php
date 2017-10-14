@@ -17,6 +17,16 @@ class Usuarios extends model{
      * @return  A boolean True for the correct user ID, or False for 'user not found'.
      */
     public function login($email, $senha){
+        $sql = "SELECT id FROM usuarios WHERE email = ? AND senha = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($email, $senha));
+        $sql = $sql->fetch(PDO::FETCH_ASSOC);
+        if($sql && count($sql)){
+            $_SESSION['cLogin'] = $sql['id'];
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -31,6 +41,18 @@ class Usuarios extends model{
      * @return  A boolean False for email alread registery, or instead True.
      */
     public function cadastrar($nome, $email, $senha, $telefone, $celular){
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($email));
+
+        if($sql->rowCount() == 0){
+            $sql = "INSERT INTO usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($email, $senha, $nome, $telefone, $celular));
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -46,6 +68,25 @@ class Usuarios extends model{
      * @return  A boolean False for email alread registery, or instead True.
      */
     public function editar($id, $nome, $email, $senha, $telefone, $celular){
+        $sql = "SELECT * FROM usuarios WHERE email = ? AND id != ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($email, $id));
+
+        if($sql->rowCount() == 0){
+            if(empty($senha)){
+                $sql = "UPDATE usuarios SET email = ?, nome = ?, telefone = ?, celular = ? WHERE id = ?";
+                $sql = $this->db->prepare($sql);
+                $sql->execute(array($email, $nome, $telefone, $celular, $id));
+                return true;
+            }else{
+                $sql = "UPDATE usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ? WHERE id = ?";
+                $sql = $this->db->prepare($sql);
+                $sql->execute(array($email, $senha, $nome, $telefone, $celular, $id));
+                return true;
+            }
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -54,6 +95,9 @@ class Usuarios extends model{
      * @param   $id       The user's ID number saved in the database.
      */
     public function excluir($id){
+        $sql = "DELETE FROM usuarios WHERE id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
     }
 
     /**
@@ -61,6 +105,7 @@ class Usuarios extends model{
      *
      */
     public function logOff(){
+        $_SESSION['cLogin'] = "";
     }
 
     /**
@@ -70,6 +115,11 @@ class Usuarios extends model{
      * @return  An array containing all data retrieved.
      */
     public function getDados($id){
+        $sql = "SELECT * FROM usuarios WHERE id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
+        $sql = $sql->fetch();
+        return $sql;
     }
 }
 ?>

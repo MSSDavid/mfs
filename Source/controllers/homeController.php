@@ -9,13 +9,145 @@
 class homeController extends controller{
 
     /**
-     * This function verifies if you are logged in, if so, then it shows you
-     * the homepage, if not, it sends you to login page.
+     * This function verifies shows the homepage.
      */
     public function index(){
         $dados = array(
-            'titulo' => 'Home'
+            'titulo' => 'Classi-O'
         );
         $this->loadTemplate('home', $dados);
+    }
+
+    public function cadastrar(){
+        $u = new Usuarios();
+        if(isset($_POST['nome']) && !empty($_POST['nome'])){
+            $nome = addslashes($_POST['nome']);
+            $email = addslashes($_POST['email']);
+            $senha = addslashes($_POST['senha']);
+            $telefone = addslashes($_POST['telefone']);
+            $celular = addslashes($_POST['celular']);
+
+            if(!empty($nome) && !empty($email) && !empty($senha)){
+                if($u->cadastrar($nome, $email, $senha, $telefone, $celular)){
+                    header("Location: ".BASE_URL."/home/login");
+                }else{
+                    $dados['aviso'] =
+                        '<div class="alert alert-warning">
+                        Este usuário já existe / Dados incorretos. <a href="'.BASE_URL.'/home/login" class="alert-link">Faça o login agora</a>
+                    </div>';
+                }
+            }else{
+                $dados['aviso'] =
+                    '<div class="alert alert-warning">
+                    Preencha todos os campos!
+                </div>';
+            }
+        }
+        $dados = array(
+            'titulo' => 'Faça seu cadastro'
+        );
+        $this->loadTemplate('cadastrar', $dados);
+    }
+
+    public function login(){
+        $u = new Usuarios();
+        if(isset($_POST['email']) && !empty($_POST['email'])){
+            $email = addslashes($_POST['email']);
+            $senha = addslashes($_POST['senha']);
+
+            if($u->login($email, $senha)){
+                header('Location:'.BASE_URL);
+            }else{
+                $dados['aviso'] = 'Usuário e/ou senha inválidos.';
+            }
+        }
+        $dados = array(
+            'titulo' => 'Faça o login no Classi-O'
+        );
+        $this->loadTemplate('login', $dados);
+    }
+
+    public function logoff(){
+        $u = new Usuarios();
+        $u->logoff($_SESSION['cLogin']);
+        header("Location: ".BASE_URL);
+    }
+
+    public function MinhaConta(){
+        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+            header("Location: ".BASE_URL);
+        }
+        $u = new Usuarios();
+        $dadosUsuario = $u->getDados($_SESSION['cLogin']);
+        $dados = array(
+            'titulo' => 'Minha Conta',
+            'dados' => $dadosUsuario
+        );
+        $this->loadTemplate('MinhaConta', $dados);
+    }
+
+    public function editarConta(){
+        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+            header("Location: ".BASE_URL);
+        }
+        $u = new Usuarios();
+        $dadosUsuario = $u->getDados($_SESSION['cLogin']);
+        $dados = array(
+            'titulo' => 'Minha Conta',
+            'dados' => $dadosUsuario
+        );
+        if(isset($_POST['nome']) && !empty($_POST['nome'])){
+            $nome = addslashes($_POST['nome']);
+            $email = addslashes($_POST['email']);
+            $senha = addslashes($_POST['senha']);
+            $novaSenha = addslashes($_POST['NovaSenha']);
+            $telefone = addslashes($_POST['telefone']);
+            $celular = addslashes($_POST['celular']);
+
+            if(!empty($nome) && !empty($email)){
+                if($senha != "" && $novaSenha != ""){
+                    if($u->login($email, $senha)){
+                        if($u->editar($_SESSION['cLogin'], $nome, $email, $novaSenha, $telefone, $celular)){
+                            header("Location: ".BASE_URL."/home/MinhaConta");
+                        }else{
+                            $dados['aviso'] =
+                                '<div class="alert alert-warning">
+                                    Este email já existe.
+                                </div>';
+                        }
+                    }else{
+                        $dados['aviso'] =
+                            '<div class="alert alert-warning">
+                                Senha Incorreta.
+                            </div>';
+                    }
+                }else{
+                    if($u->editar($_SESSION['cLogin'], $nome, $email, $senha, $telefone, $celular)){
+                        header("Location: ".BASE_URL."/home/MinhaConta");
+                    }else{
+                        $dados['aviso'] =
+                            '<div class="alert alert-warning">
+                                    Este email já existe.
+                             </div>';
+                    }
+                }
+            }else{
+                $dados['aviso'] =
+                    '<div class="alert alert-warning">
+                    Preencha todos os campos!
+                </div>';
+            }
+        }
+        $this->loadTemplate('editarConta', $dados);
+    }
+
+    public function excluirConta(){
+        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+            header("Location: ".BASE_URL);
+        }
+        $u = new Usuarios();
+        $u->excluir($_SESSION['cLogin']);
+        $u->logOff($_SESSION['cLogin']);
+        header("Location: ".BASE_URL."/home");
     }
 }

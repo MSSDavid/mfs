@@ -9,7 +9,7 @@
 class homeController extends controller{
 
     /**
-     * This function verifies shows the homepage.
+     * This function shows the homepage.
      */
     public function index(){
         $dados = array(
@@ -18,6 +18,10 @@ class homeController extends controller{
         $this->loadTemplate('home', $dados);
     }
 
+    /**
+     * This function shows the register page.
+     * Receive the input data and use the user's register method
+     */
     public function cadastrar(){
         $u = new Usuarios();
         if(isset($_POST['nome']) && !empty($_POST['nome'])){
@@ -49,6 +53,10 @@ class homeController extends controller{
         $this->loadTemplate('cadastrar', $dados);
     }
 
+    /**
+     * This function shows the login page.
+     * Receive the input data and use the user's login method
+     */
     public function login(){
         $u = new Usuarios();
         if(isset($_POST['email']) && !empty($_POST['email'])){
@@ -67,12 +75,18 @@ class homeController extends controller{
         $this->loadTemplate('login', $dados);
     }
 
+    /**
+     * This function use the user's logoff method and redirects to homepage
+     */
     public function logoff(){
         $u = new Usuarios();
         $u->logoff($_SESSION['cLogin']);
         header("Location: ".BASE_URL);
     }
 
+    /**
+     * This function checks if the user if logged in, if so shows the user data page.
+     */
     public function MinhaConta(){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header("Location: ".BASE_URL);
@@ -86,6 +100,10 @@ class homeController extends controller{
         $this->loadTemplate('MinhaConta', $dados);
     }
 
+    /**
+     * This function checks if the user if logged in, if so shows the user data editing page.
+     * Receive the input data and use the user's edit method
+     */
     public function editarConta(){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header("Location: ".BASE_URL);
@@ -141,6 +159,9 @@ class homeController extends controller{
         $this->loadTemplate('editarConta', $dados);
     }
 
+    /**
+     * This function use the user's delete method and redirects to homepage
+     */
     public function excluirConta(){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header("Location: ".BASE_URL);

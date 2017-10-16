@@ -73,9 +73,33 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('(62) 3535-3535', $result['telefone']);
         $this->assertEquals('(62) 98888-8888', $result['celular']);
 
-        //Teste do else
-        $result = $u->editar(1, 'Samuel', 'adm@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888');
+        //Teste do else - Email já cadastrado
+        $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular) VALUES ('samuel@ufg.br', '123', 'Samuel', '(62) 3514-1803', '(62) 98888-7777')";
+        $sql = $GLOBALS['db']->prepare($sql);
+        $sql->execute();
+        $result = $u->editar(2, 'Samuel', 'adm@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888');
         $this->assertEquals(false, $result);
+
+        //Teste do if - Senha em branco
+        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '', '(62) 3535-3535', '(62) 98888-8888');
+        $this->assertEquals(true, $result);
+        $this->assertEquals(1, $result['id']);
+        $this->assertEquals('Samuel', $result['nome']);
+        $this->assertEquals('samuel@adm.com.br', $result['email']);
+        $this->assertEquals(md5('456'), $result['senha']);
+        $this->assertEquals('(62) 3535-3535', $result['telefone']);
+        $this->assertEquals('(62) 98888-8888', $result['celular']);
+
+        // Teste do else - Senha preenchida
+        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '789', '(62) 3535-3535', '(62) 98888-8888');
+        $this->assertEquals(true, $result);
+        $this->assertEquals(1, $result['id']);
+        $this->assertEquals('Samuel', $result['nome']);
+        $this->assertEquals('samuel@adm.com.br', $result['email']);
+        $this->assertEquals(md5('789'), $result['senha']);
+        $this->assertEquals('(62) 3535-3535', $result['telefone']);
+        $this->assertEquals('(62) 98888-8888', $result['celular']);
+
     }
 
     public function testExcluir(){

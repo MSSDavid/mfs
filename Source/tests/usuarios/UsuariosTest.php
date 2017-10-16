@@ -113,8 +113,8 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('1', $result['id']);
         $this->assertEquals('Administrador', $result['nome']);
         $this->assertEquals('adm@adm.com.br', $result['email']);
-        $this->assertEquals(md5('(62) 3232-3232'), $result['telefone']);
-        $this->assertEquals(md5('(62) 98585-8585'), $result['celular']);
+        $this->assertEquals('(62) 3232-3232', $result['telefone']);
+        $this->assertEquals('(62) 98585-8585', $result['celular']);
     }
 
     /**

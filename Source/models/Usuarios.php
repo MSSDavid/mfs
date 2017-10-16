@@ -48,7 +48,7 @@ class Usuarios extends model{
         if($sql && count($sql)){
             return false;
         }else{
-            $sql = "INSERT INTO usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ?";
+            $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular) VALUES (?, ?, ?, ?, ?)";
             $sql = $this->db->prepare($sql);
             $sql->execute(array($email, md5($senha), $nome, $telefone, $celular));
             return true;

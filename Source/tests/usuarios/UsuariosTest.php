@@ -15,12 +15,12 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $u = new Usuarios();
 
-        $result = $u->logIn('adm@adm.com.br', md5('123'));
+        $result = $u->logIn('adm@adm.com.br', '123');
 
         $this->assertEquals(true, $result);
 
         //Teste do else
-        $result = $u->logIn('adm@adm.com.br', md5('456'));
+        $result = $u->logIn('adm@adm.com.br', '456');
         $this->assertEquals(false, $result);
     }
 

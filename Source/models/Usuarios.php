@@ -44,14 +44,14 @@ class Usuarios extends model{
         $sql = "SELECT * FROM usuarios WHERE email = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($email));
-
-        if($sql->rowCount() == 0){
+        $sql = $sql->fetchAll();
+        if($sql && count($sql)){
+            return false;
+        }else{
             $sql = "INSERT INTO usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ?";
             $sql = $this->db->prepare($sql);
             $sql->execute(array($email, md5($senha), $nome, $telefone, $celular));
             return true;
-        }else{
-            return false;
         }
     }
 
@@ -71,8 +71,10 @@ class Usuarios extends model{
         $sql = "SELECT * FROM usuarios WHERE email = ? AND id != ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($email, $id));
-
-        if($sql->rowCount() == 0){
+        $sql = $sql->fetchAll();
+        if($sql && count($sql)){
+            return false;
+        }else{
             if(empty($senha)){
                 $sql = "UPDATE usuarios SET email = ?, nome = ?, telefone = ?, celular = ? WHERE id = ?";
                 $sql = $this->db->prepare($sql);
@@ -84,8 +86,6 @@ class Usuarios extends model{
                 $sql->execute(array($email, md5($senha), $nome, $telefone, $celular, $id));
                 return true;
             }
-        }else{
-            return false;
         }
     }
 

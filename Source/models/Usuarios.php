@@ -19,7 +19,7 @@ class Usuarios extends model{
     public function login($email, $senha){
         $sql = "SELECT id FROM usuarios WHERE email = ? AND senha = ?";
         $sql = $this->db->prepare($sql);
-        $sql->execute(array($email, $senha));
+        $sql->execute(array($email, md5($senha)));
         $sql = $sql->fetch(PDO::FETCH_ASSOC);
         if($sql && count($sql)){
             $_SESSION['cLogin'] = $sql['id'];
@@ -48,7 +48,7 @@ class Usuarios extends model{
         if($sql->rowCount() == 0){
             $sql = "INSERT INTO usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ?";
             $sql = $this->db->prepare($sql);
-            $sql->execute(array($email, $senha, $nome, $telefone, $celular));
+            $sql->execute(array($email, md5($senha), $nome, $telefone, $celular));
             return true;
         }else{
             return false;
@@ -81,7 +81,7 @@ class Usuarios extends model{
             }else{
                 $sql = "UPDATE usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ? WHERE id = ?";
                 $sql = $this->db->prepare($sql);
-                $sql->execute(array($email, $senha, $nome, $telefone, $celular, $id));
+                $sql->execute(array($email, md5($senha), $nome, $telefone, $celular, $id));
                 return true;
             }
         }else{

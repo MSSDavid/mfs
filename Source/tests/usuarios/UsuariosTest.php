@@ -15,12 +15,12 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $u = new Usuarios();
 
-        $result = $u->logIn('adm@adm.com.br', '123');
+        $result = $u->logIn('adm@adm.com.br', md5('123'));
 
         $this->assertEquals(true, $result);
 
         //Teste do else
-        $result = $u->logIn('adm@adm.com.br', '456');
+        $result = $u->logIn('adm@adm.com.br', md5('456'));
         $this->assertEquals(false, $result);
     }
 
@@ -47,7 +47,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('(62) 98888-8888', $result['celular']);
 
         //Teste do else
-        $result = $u->cadastrar('Samuel', 'adm@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888');
+        $result = $u->cadastrar('Samuel', 'adm@adm.com.br', md5('456'), '(62) 3535-3535', '(62) 98888-8888');
         $this->assertEquals(false, $result);
     }
 

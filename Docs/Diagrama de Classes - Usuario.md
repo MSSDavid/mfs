@@ -1,6 +1,6 @@
 # Diagrama de Classes
 
-## Classe Usuário
 O Digrama da classe usuário está representado abaixo:
 
-![diagrama de usuarios](https://user-images.githubusercontent.com/19656573/31369068-2e1297fc-ad58-11e7-8c3f-40de48be06af.jpg)
+![diagrama de classe](https://user-images.githubusercontent.com/19656582/31918076-89526d0e-b839-11e7-923d-0dce5f8e7ecc.jpg)
+

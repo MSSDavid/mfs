@@ -1,5 +1,5 @@
 # Arquitetura da aplicação
-##### _v.1.1_
+##### _v.1.0_
 
 O projeto irá utilizar a arquitetura mvc (_Model_, _View_, _Controller_) para executar a aplicação, está representado a abaixo:
 

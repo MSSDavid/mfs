@@ -17,6 +17,9 @@ O cronograma do projeto está detalhado [aqui](https://github.com/MSSDavid/mfs/b
 ## Backlog do Produto
 As histórias de usuários referente ao backlog do produto, pode ser acessado [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Hist%C3%B3rias%20de%20Usu%C3%A1rio.md)
 
+### Arquitetura
+A arquitetura do projeto pode ser acessada [clicando aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Arquitetura.md)
+
 
 ## Integrantes
 [Samuel Rocha Costa](https://github.com/samuelrcosta)  

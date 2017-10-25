@@ -1,0 +1,18 @@
+<dataset>
+    <table name="categorias">
+        <column>id</column>
+        <column>nome</column>
+        <row>
+            <value>1</value>
+            <value>Carros</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>Motos</value>
+        </row>
+        <row>
+            <value>3</value>
+            <value>Barcos</value>
+        </row>
+    </table>
+</dataset>

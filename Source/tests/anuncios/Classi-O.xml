@@ -1,0 +1,32 @@
+<dataset>
+    <table name="anuncios">
+        <column>id</column>
+        <column>id_usuario</column>
+        <column>titulo</column>
+        <column>dataPublicacao</column>
+        <column>descricao</column>
+        <column>id_categoria</column>
+        <column>preco</column>
+        <column>estado</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>Teste Titulo</value>
+            <value>2017-10-25 19:30:00</value>
+            <value>Descrição do Anúncio</value>
+            <value>1</value>
+            <value>100.50</value>
+            <value>1</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>2</value>
+            <value>Teste Titulo 2</value>
+            <value>2017-10-23 19:30:00</value>
+            <value>Descr Anc</value>
+            <value>3</value>
+            <value>55.12</value>
+            <value>3</value>
+        </row>
+    </table>
+</dataset>

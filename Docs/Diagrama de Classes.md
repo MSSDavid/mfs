@@ -2,6 +2,6 @@
 
 O Diagrama de classes do sistema Classi-O está representado abaixo:  
 
-![classi-o](https://user-images.githubusercontent.com/19656573/32025566-7f059bfa-b9bf-11e7-9b27-ac2d6020db0c.jpg)
+![classi-o](https://user-images.githubusercontent.com/19656573/32029320-827bb7b6-b9d2-11e7-98f7-79b57059aa19.jpg)
 
 

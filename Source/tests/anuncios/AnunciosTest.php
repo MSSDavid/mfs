@@ -58,7 +58,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $a = new Anuncios();
         $_SESSION['cLogin'] = 3;
 
-        $a->cadastrarAnuncio(3, 'Carro Automático', '25/10/2017 19:38:00', 'Ótimo estado de conservação', '2', 30.00, '2');
+        $a->cadastrarAnuncio(3, 'Carro Automático', 'Ótimo estado de conservação', '2', 30.00, '2');
 
         $sql = "SELECT * FROM anuncios ORDER BY id desc";
         $sql = $GLOBALS['db']->prepare($sql);
@@ -68,7 +68,6 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(3, $result['id']);
         $this->assertEquals(3, $result['id_usuario']);
         $this->assertEquals('Carro Automático', $result['titulo']);
-        $this->assertEquals('25/10/2017 19:38:00', $result['dataPublicacao']);
         $this->assertEquals('Ótimo estado de conservação', $result['descricao']);
         $this->assertEquals('2', $result['id_categoria']);
         $this->assertEquals(30.00, $result['preco']);
@@ -83,12 +82,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $a = new Anuncios();
         $_SESSION['cLogin'] = 3;
 
-        $a->editarAnuncio(1, 3, 'Carro Automático', '25/10/2017 19:38:00', 'Ótimo estado de conservação', '2', '2');
-
-        $sql = "SELECT * FROM usuarios ORDER BY id desc";
-        $sql = $GLOBALS['db']->prepare($sql);
-        $sql->execute();
-        $result = $sql->fetch();
+        $a->editarAnuncio(1, 3, 'Carro Automático', 'Ótimo estado de conservação', '2', '2');
 
         $sql = "SELECT * FROM anuncios WHERE id = ?";
         $sql = $GLOBALS['db']->prepare($sql);

@@ -29,4 +29,19 @@
             <value>3</value>
         </row>
     </table>
+    <table name="anuncios_imagens">
+        <column>id</column>
+        <column>id_anuncio</column>
+        <column>url</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>imagem_anuncio</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>2</value>
+            <value>imagem_anuncio2</value>
+        </row>
+    </table>
 </dataset>

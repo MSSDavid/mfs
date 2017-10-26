@@ -31,7 +31,7 @@ class Anuncios extends model{
         $sql = "SELECT * FROM anuncios ORDER BY id DESC";
         $sql = $this->db->prepare($sql);
         $sql->execute();
-        $sql = $sql->fetch();
+        $sql = $sql->fetchAll();
         return $sql;
     }
 
@@ -46,7 +46,7 @@ class Anuncios extends model{
      * @param   $estado         The ad's conservation status.
      */
     public function cadastrarAnuncio($id_usuario, $titulo, $descricao, $id_categoria, $preco, $estado){
-        $sql = "INSERT INTO anuncios (id_usuario, titulo, NOW(), descricao, id_categoria, preco, estado) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO anuncios (id_usuario, titulo, dataPublicacao, descricao, id_categoria, preco, estado) VALUES (?, ?, NOW(), ?, ?, ?, ?)";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($id_usuario, $titulo, $descricao, $id_categoria, $preco, $estado));
     }

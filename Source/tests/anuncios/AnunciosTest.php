@@ -82,7 +82,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $a = new Anuncios();
         $_SESSION['cLogin'] = 3;
 
-        $a->editarAnuncio(1, 3, 'Carro Automático', 'Ótimo estado de conservação', '2', '2');
+        $a->editarAnuncio(1, 3, 'Carro Automático', 'Ótimo estado de conservação', 115.66, '2', '2');
 
         $sql = "SELECT * FROM anuncios WHERE id = ?";
         $sql = $GLOBALS['db']->prepare($sql);
@@ -95,6 +95,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('25/10/2017 19:38:00', $result['dataPublicacao']);
         $this->assertEquals('Ótimo estado de conservação', $result['descricao']);
         $this->assertEquals('2', $result['id_categoria']);
+        $this->assertEquals(115.66, $result['preco']);
         $this->assertEquals('2', $result['estado']);
     }
 
@@ -121,7 +122,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::classi-o:');
-            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` datetime NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL)');
+            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` datetime NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL); CREATE TABLE `anuncios_imagens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `url` varchar(150) NOT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':classi-o:');
         }
 

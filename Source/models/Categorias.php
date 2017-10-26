@@ -7,4 +7,30 @@
  * @since   0.1
  */
 class Categorias extends model{
+    /**
+     * This function retrieves all data from an category, by using it's ID.
+     *
+     * @param   $id     The category's ID number saved in the database.
+     * @return  An array containing all data retrieved.
+     */
+    public function getCategoria($id){
+        $sql = "SELECT * FROM categorias WHERE id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
+        $sql = $sql->fetch();
+        return $sql;
+    }
+
+    /**
+     * This function retrieves all data from category's database.
+     *
+     * @return  An array containing all data retrieved.
+     */
+    public function getCategorias(){
+        $sql = "SELECT * FROM categorias ORDER BY id DESC";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+        $sql = $sql->fetchAll();
+        return $sql;
+    }
 }

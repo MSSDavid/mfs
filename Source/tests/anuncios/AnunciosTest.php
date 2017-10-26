@@ -32,22 +32,22 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $a = new Anuncios();
         $result = $a->getAnuncios();
-        $this->assertEquals(1, $result[2]['id']);
-        $this->assertEquals(1, $result[2]['id_usuario']);
-        $this->assertEquals('Teste Titulo', $result[2]['titulo']);
-        $this->assertEquals('2017-10-25 19:30:00', $result[2]['dataPublicacao']);
-        $this->assertEquals('Descrição do Anúncio', $result[2]['descricao']);
-        $this->assertEquals('1', $result[2]['id_categoria']);
-        $this->assertEquals(100.50, $result[2]['preco']);
-        $this->assertEquals('1', $result[2]['estado']);
-        $this->assertEquals(2, $result[1]['id']);
-        $this->assertEquals(2, $result[1]['id_usuario']);
-        $this->assertEquals('Teste Titulo 2', $result[1]['titulo']);
-        $this->assertEquals('2017-10-23 19:30:00', $result[1]['dataPublicacao']);
-        $this->assertEquals('Descr Anc', $result[1]['descricao']);
-        $this->assertEquals('3', $result[1]['id_categoria']);
-        $this->assertEquals(55.12, $result[1]['preco']);
-        $this->assertEquals('3', $result[1]['estado']);
+        $this->assertEquals(1, $result[1]['id']);
+        $this->assertEquals(1, $result[1]['id_usuario']);
+        $this->assertEquals('Teste Titulo', $result[1]['titulo']);
+        $this->assertEquals('2017-10-25 19:30:00', $result[1]['dataPublicacao']);
+        $this->assertEquals('Descrição do Anúncio', $result[1]['descricao']);
+        $this->assertEquals('1', $result[1]['id_categoria']);
+        $this->assertEquals(100.50, $result[1]['preco']);
+        $this->assertEquals('1', $result[1]['estado']);
+        $this->assertEquals(2, $result[0]['id']);
+        $this->assertEquals(2, $result[0]['id_usuario']);
+        $this->assertEquals('Teste Titulo 2', $result[0]['titulo']);
+        $this->assertEquals('2017-10-23 19:30:00', $result[0]['dataPublicacao']);
+        $this->assertEquals('Descr Anc', $result[0]['descricao']);
+        $this->assertEquals('3', $result[0]['id_categoria']);
+        $this->assertEquals(55.12, $result[0]['preco']);
+        $this->assertEquals('3', $result[0]['estado']);
     }
 
     public function testCadastrarAnuncio(){
@@ -82,7 +82,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $a = new Anuncios();
         $_SESSION['cLogin'] = 3;
 
-        $a->editarAnuncio(1, 3, 'Carro Automático', 'Ótimo estado de conservação', 115.66, '2', '2');
+        $a->editarAnuncio(1, 3, 'Carro Automático', 'Ótimo estado de conservação', '2', 115.66, '2');
 
         $sql = "SELECT * FROM anuncios WHERE id = ?";
         $sql = $GLOBALS['db']->prepare($sql);

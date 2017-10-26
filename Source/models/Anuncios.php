@@ -74,7 +74,7 @@ class Anuncios extends model{
      * @param   $id   The ad's ID number saved in the database.
      */
     public function excluir($id){
-        $sql = $this->db->prepare("DELETE FROM anuncios_imagens WHERE id_anuncio = ?");
+        $sql = $this->db->prepare("DELETE FROM anuncios WHERE id = ?");
         $sql->execute(array($id));
         $sql = $this->db->prepare("SELECT * FROM anuncios_imagens WHERE id = ?");
         $sql->execute(array($id));

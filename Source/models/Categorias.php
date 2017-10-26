@@ -11,7 +11,7 @@ class Categorias extends model{
      * This function retrieves all data from an category, by using it's ID.
      *
      * @param   $id     The category's ID number saved in the database.
-     * @return  An array containing all data retrieved.
+     * @return  array containing all data retrieved.
      */
     public function getCategoria($id){
         $sql = "SELECT * FROM categorias WHERE id = ?";
@@ -24,7 +24,7 @@ class Categorias extends model{
     /**
      * This function retrieves all data from category's database.
      *
-     * @return  An array containing all data retrieved.
+     * @return  array containing all data retrieved.
      */
     public function getCategorias(){
         $sql = "SELECT * FROM categorias ORDER BY id DESC";

@@ -32,22 +32,22 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $a = new Anuncios();
         $result = $a->getAnuncios();
-        $this->assertEquals(1, $result['id'][2]);
-        $this->assertEquals(1, $result['id_usuario'][2]);
-        $this->assertEquals('Teste Titulo', $result['titulo'][2]);
-        $this->assertEquals('2017-10-25 19:30:00', $result['dataPublicacao'][2]);
-        $this->assertEquals('Descrição do Anúncio', $result['descricao'][2]);
-        $this->assertEquals('1', $result['id_categoria'][2]);
-        $this->assertEquals(100.50, $result['preco'][2]);
-        $this->assertEquals('1', $result['estado'][2]);
-        $this->assertEquals(2, $result['id'][1]);
-        $this->assertEquals(2, $result['id_usuario'][1]);
-        $this->assertEquals('Teste Titulo 2', $result['titulo'][1]);
-        $this->assertEquals('2017-10-23 19:30:00', $result['dataPublicacao'][1]);
-        $this->assertEquals('Descr Anc', $result['descricao'][1]);
-        $this->assertEquals('3', $result['id_categoria'][1]);
-        $this->assertEquals(55.12, $result['preco'][1]);
-        $this->assertEquals('3', $result['estado'][1]);
+        $this->assertEquals(1, $result[2]['id']);
+        $this->assertEquals(1, $result[2]['id_usuario']);
+        $this->assertEquals('Teste Titulo', $result[2]['titulo']);
+        $this->assertEquals('2017-10-25 19:30:00', $result[2]['dataPublicacao']);
+        $this->assertEquals('Descrição do Anúncio', $result[2]['descricao']);
+        $this->assertEquals('1', $result[2]['id_categoria']);
+        $this->assertEquals(100.50, $result[2]['preco']);
+        $this->assertEquals('1', $result[2]['estado']);
+        $this->assertEquals(2, $result[1]['id']);
+        $this->assertEquals(2, $result[1]['id_usuario']);
+        $this->assertEquals('Teste Titulo 2', $result[1]['titulo']);
+        $this->assertEquals('2017-10-23 19:30:00', $result[1]['dataPublicacao']);
+        $this->assertEquals('Descr Anc', $result[1]['descricao']);
+        $this->assertEquals('3', $result[1]['id_categoria']);
+        $this->assertEquals(55.12, $result[1]['preco']);
+        $this->assertEquals('3', $result[1]['estado']);
     }
 
     public function testCadastrarAnuncio(){
@@ -92,7 +92,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(1, $result['id']);
         $this->assertEquals(3, $result['id_usuario']);
         $this->assertEquals('Carro Automático', $result['titulo']);
-        $this->assertEquals('25/10/2017 19:38:00', $result['dataPublicacao']);
+        $this->assertEquals('2017-10-25 19:30:00', $result['dataPublicacao']);
         $this->assertEquals('Ótimo estado de conservação', $result['descricao']);
         $this->assertEquals('2', $result['id_categoria']);
         $this->assertEquals(115.66, $result['preco']);
@@ -122,7 +122,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::classi-o:');
-            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` datetime NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL); CREATE TABLE `anuncios_imagens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_anuncio` INTEGER NOT NULL, `url` varchar(150) NOT NULL)');
+            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL); CREATE TABLE `anuncios_imagens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_anuncio` INTEGER NOT NULL, `url` varchar(150) NOT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':classi-o:');
         }
 

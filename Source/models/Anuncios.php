@@ -12,7 +12,7 @@ class Anuncios extends model{
      * This function retrieves all data from an ad, by using it's ID.
      *
      * @param   $id     The ad's ID number saved in the database.
-     * @return  An array containing all data retrieved.
+     * @return  array containing all data retrieved.
      */
     public function getAnuncio($id){
         $sql = "SELECT * FROM anuncios WHERE id = ?";
@@ -25,7 +25,7 @@ class Anuncios extends model{
     /**
      * This function retrieves all data from ad's database.
      *
-     * @return  An array containing all data retrieved.
+     * @return  array containing all data retrieved.
      */
     public function getAnuncios(){
         $sql = "SELECT * FROM anuncios ORDER BY id DESC";
@@ -46,7 +46,7 @@ class Anuncios extends model{
      * @param   $estado         The ad's conservation status.
      */
     public function cadastrarAnuncio($id_usuario, $titulo, $descricao, $id_categoria, $preco, $estado){
-        $sql = "INSERT INTO anuncios (id_usuario, titulo, dataPublicacao, descricao, id_categoria, preco, estado) VALUES (?, ?, NOW(), ?, ?, ?, ?)";
+        $sql = "INSERT INTO anuncios (id_usuario, titulo, dataPublicacao, descricao, id_categoria, preco, estado) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?)";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($id_usuario, $titulo, $descricao, $id_categoria, $preco, $estado));
     }
@@ -74,13 +74,14 @@ class Anuncios extends model{
      * @param   $id   The ad's ID number saved in the database.
      */
     public function excluir($id){
-        $sql = $this->db->prepare("DELETE FROM anuncios_imagens WHERE id_anuncios = ?");
+        $sql = $this->db->prepare("DELETE FROM anuncios_imagens WHERE id_anuncio = ?");
         $sql->execute(array($id));
         $sql = $this->db->prepare("SELECT * FROM anuncios_imagens WHERE id = ?");
         $sql->execute(array($id));
         $sql = $sql->fetchAll();
+        $a = new Anuncios_imagens();
         foreach($sql as $result){
-            $this->excluirFoto($result['id']);
+            $a->excluirFoto($result['id']);
         }
 
     }

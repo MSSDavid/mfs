@@ -20,6 +20,7 @@
                 </li>
             </ul>
         </div>
-        <input type="submit" value="Entrar" class="btn btn-default" style="cursor: pointer">
+        <input type="submit" value="Entrar" class="btn btn-primary" style="cursor: pointer">
+        <p style="margin-top: 10px">Esqueceu a senha? <a href="#">Clique aqui</a> para recuperá-la.</p>
     </form>
 </div>

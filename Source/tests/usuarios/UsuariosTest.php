@@ -146,12 +146,36 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $GLOBALS['db'] = $conn;
 
         $u = new Usuarios();
-        $result = $u->getDados(1);
+        //TESTE DO IF
+        $result = $u->getDados(1, 1);
         $this->assertEquals('1', $result['id']);
         $this->assertEquals('Administrador', $result['nome']);
         $this->assertEquals('adm@adm.com.br', $result['email']);
         $this->assertEquals('(62) 3232-3232', $result['telefone']);
         $this->assertEquals('(62) 98585-8585', $result['celular']);
+
+        //TESTE DO ELSE
+        $result = $u->getDados(2, "adm@adm.com.br");
+        $this->assertEquals('1', $result['id']);
+        $this->assertEquals('Administrador', $result['nome']);
+        $this->assertEquals('adm@adm.com.br', $result['email']);
+        $this->assertEquals('(62) 3232-3232', $result['telefone']);
+        $this->assertEquals('(62) 98585-8585', $result['celular']);
+    }
+
+    public function testRecuperarSenha(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $u = new Usuarios();
+        //TESTE DO IF
+        $result = $u->recuperarSenha("adm@adm.com.br");
+        $this->assertTrue($result);
+
+        //TESTE DO ELSE
+        $result = $u->recuperarSenha("adm@adm.com");
+        $this->assertFalse($result);
     }
 
     /**

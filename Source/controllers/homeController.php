@@ -92,7 +92,7 @@ class homeController extends controller{
             header("Location: ".BASE_URL);
         }
         $u = new Usuarios();
-        $dadosUsuario = $u->getDados($_SESSION['cLogin']);
+        $dadosUsuario = $u->getDados(1, $_SESSION['cLogin']);
         $dados = array(
             'titulo' => 'Minha Conta',
             'dados' => $dadosUsuario
@@ -109,7 +109,7 @@ class homeController extends controller{
             header("Location: ".BASE_URL);
         }
         $u = new Usuarios();
-        $dadosUsuario = $u->getDados($_SESSION['cLogin']);
+        $dadosUsuario = $u->getDados(1, $_SESSION['cLogin']);
         $dados = array(
             'titulo' => 'Minha Conta',
             'dados' => $dadosUsuario

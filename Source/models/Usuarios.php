@@ -109,17 +109,30 @@ class Usuarios extends model{
     }
 
     /**
-     * This function retrieves all data from an user, by using it's ID.
+     * This function retrieves all data from an user, by using it's ID or it's Email.
      *
-     * @param   $id     The user's ID number saved in the database.
-     * @return  An array containing all data retrieved.
+     * @param   $tipo           int for the type of search, 1 to ID and 2 to Email
+     * @param   $idOrEmail     string user's ID number or Email saved in the database.
+     * @return  array containing all data retrieved.
      */
-    public function getDados($id){
-        $sql = "SELECT * FROM usuarios WHERE id = ?";
-        $sql = $this->db->prepare($sql);
-        $sql->execute(array($id));
-        $sql = $sql->fetch();
-        return $sql;
+    public function getDados($tipo, $idOremail){
+        if($tipo == 1){
+            $sql = "SELECT * FROM usuarios WHERE id = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($idOremail));
+            $sql = $sql->fetch();
+            return $sql;
+        }else{
+            $sql = "SELECT * FROM usuarios WHERE email = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($idOremail));
+            $sql = $sql->fetch();
+            return $sql;
+        }
+    }
+
+    public function recuperarSenha($email){
+
     }
 }
 ?>

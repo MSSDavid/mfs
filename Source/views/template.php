@@ -21,7 +21,7 @@
                     <?php if(isset($_SESSION['cLogin']) && !empty($_SESSION['cLogin'])): ?>
                         <?php
                         $u = new Usuarios();
-                        $u = $u->getDados(addslashes($_SESSION['cLogin']));
+                        $u = $u->getDados(1, addslashes($_SESSION['cLogin']));
                         ?>
                         <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>">Anúncios</a></li>
                         <li class="nav-item dropdown">
@@ -31,12 +31,12 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="<?php echo BASE_URL;?>/home/MinhaConta">Minha Conta</a>
                                 <a class="dropdown-item" href="<?php echo BASE_URL;?>/home/meusAnuncios">Meus Anúncios</a>
-                                <a class="dropdown-item" href="<?php echo BASE_URL;?>/home/logoff">Sair</a>
+                                <a class="dropdown-item" href="<?php echo BASE_URL;?>/login/logoff">Sair</a>
                             </div>
                         </li>
                     <?php else: ?>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/home/cadastrar">Cadastre-se</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/home/login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/login/cadastrar">Cadastre-se</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/login">Login</a></li>
                     <?php endif; ?>
                 </ul>
             </div>

@@ -5,7 +5,9 @@ var imagem_atual;
 
 // Quando carregado a página
 $(function ($) {
-
+    setTimeout(function(){
+        $(".notificacao").slideUp();
+        }, 8000);
     // Quando selecionado as imagens
     $('#imagem').on('change', function () {
         enviar();
@@ -105,6 +107,22 @@ function limpar()
     var input = $("#imagem");
     input.replaceWith(input.val('').clone(true));
     location.reload();
+}
+
+function validarFormRecuperarSenha(){
+    msg = '<ul class="list-group">';
+    if(validaForm() == -1){
+        $("#retorno").slideDown().html(msg);
+        return false;
+    }else{
+        if($('#senha').val() != $('#confirmaSenha'.val())){
+            msg = msg+'<li class="list-group-item">As senhas digitadas são diferentes.</li>';
+            $("#retorno").slideDown().html(msg);
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
 
 function validar(){

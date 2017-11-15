@@ -178,6 +178,36 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertFalse($result);
     }
 
+    public function testSetHashRecuperacao(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $u = new Usuarios();
+        $id = 1;
+        $hashRecuperacao = "123456";
+        $u->setHashRecuperacao($id, "123456");
+        $sql = "SELECT * FROM usuarios WHERE hashRecuperacao = ?";
+        $sql = $GLOBALS['db']->prepare($sql);
+        $sql->execute(array($hashRecuperacao));
+        $result = $sql->fetch();
+        $this->assertEquals($hashRecuperacao, $result['hashRecuperacao']);
+    }
+
+    public function testGetDadosHash(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $u = new Usuarios();
+        $result = $u->getDadosHash("b0583adaea49e0b620f660dc2de6c40a");
+        $this->assertEquals('1', $result['id']);
+        $this->assertEquals('Administrador', $result['nome']);
+        $this->assertEquals('adm@adm.com.br', $result['email']);
+        $this->assertEquals('(62) 3232-3232', $result['telefone']);
+        $this->assertEquals('(62) 98585-8585', $result['celular']);
+    }
+
     /**
      * @coversNothing
      */
@@ -186,7 +216,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::classi-o:');
-            $db->exec('CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20))');
+            $db->exec('CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `hashRecuperacao` varchar(200))');
             $this->conn =  $this->createDefaultDBConnection($db, ':classi-o:');
         }
 

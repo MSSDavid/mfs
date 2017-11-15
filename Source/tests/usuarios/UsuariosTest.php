@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 include_once __DIR__.'/../../core/model.php';
 include_once __DIR__.'/../../models/Usuarios.php';
-include_once __DIR__.'../../PHPMailer/PHPMailerAutoload.php';
 
 final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
 
@@ -170,6 +169,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $GLOBALS['db'] = $conn;
 
         $u = new Usuarios();
+        define("BASE_URL", 'http://localhost/php/Classi-o/Source');
         //TESTE DO IF
         $result = $u->recuperarSenha("adm@adm.com.br");
         $this->assertTrue($result);

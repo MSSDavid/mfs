@@ -15,7 +15,6 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $a = new Anuncios();
         $result = $a->getAnuncio(1);
-        print_r($result);
         $this->assertEquals(1, $result['id']);
         $this->assertEquals(1, $result['id_usuario']);
         $this->assertEquals('Teste Titulo', $result['titulo']);
@@ -25,10 +24,12 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(100.50, $result['preco']);
         $this->assertEquals('1', $result['estado']);
         $this->assertEquals('Carros', $result['categoria']);
-        $this->assertEquals('Adminsitrador', $result['nome']);
+        $this->assertEquals('Administrador', $result['nome']);
         $this->assertEquals('(62) 3232-3232', $result['telefone']);
         $this->assertEquals('(62) 98585-8585', $result['celular']);
         $this->assertEquals('adm@adm.com.br', $result['email']);
+        $this->assertEquals(1, $result['fotos'][0]['id']);
+        $this->assertEquals(1, $result['imagem_anuncio'][0]['url']);
     }
 
     public function testGetMeusAnuncios(){

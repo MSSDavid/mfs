@@ -53,7 +53,7 @@
                         foreach ($info['fotos'] as $foto):?>
                             <div class="foto-itens">
                                 <img src="<?php echo BASE_URL;?>/assets/imgs/anuncios/<?php echo $foto['url']; ?>" class="img-thumbnail"><br>
-                                <a href="<?php echo BASE_URL;?>/anuncios/excluirFoto/<?php echo base64_encode(base64_encode($foto['id'])); ?>" class="btn btn-danger">Excluir Imagem</a>
+                                <a href="<?php echo BASE_URL;?>/anuncios/excluirFoto/<?php echo base64_encode(base64_encode($foto['id'])); ?>/<?php echo base64_encode(base64_encode($info['id'])); ?>" class="btn btn-danger">Excluir Imagem</a>
                             </div>
                         <?php endforeach; }?>
                 </div>

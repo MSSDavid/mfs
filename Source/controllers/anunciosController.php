@@ -69,7 +69,7 @@ class anunciosController extends controller{
         echo $a->salvarFoto();
     }
 
-    public function excluirFoto($id){
+    public function excluirFoto($id, $id_anuncio){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header("Location: ".BASE_URL."/login");
             exit;
@@ -78,7 +78,7 @@ class anunciosController extends controller{
         $a = new Anuncios_imagens();
         if(isset($id) && !empty($id)){
             $a->excluirFoto($id);
-            header ("Location: ".BASE_URL."/anuncios/editarAnuncio/".base64_encode(base64_encode($id))."");
+            header ("Location: ".BASE_URL."/anuncios/editarAnuncio/".$id_anuncio);
         }else{
             header("Location: ".BASE_URL."/anuncios");
         }

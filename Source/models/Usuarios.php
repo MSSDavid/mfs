@@ -199,15 +199,6 @@ class Usuarios extends model{
                                     <td>     </td>
                                 </tr>
                                 <tr>
-                                    <td>Caso não consiga abrir o link, copie o endereço abaixo e cole no navegador:</td>
-                                </tr>
-                                <tr>
-                                    <td>".BASE_URL."/login/recuperarSenha/".$hashRecuperacao."</td>
-                                </tr>
-                                <tr>
-                                    <td>     </td>
-                                </tr>
-                                <tr>
                                     <td>     </td>
                                 </tr>
                                 <tr>

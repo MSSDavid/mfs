@@ -116,7 +116,7 @@ class loginController extends controller{
                 $senha = addslashes($_POST['senha']);
                 $confirmaSenha = addslashes($_POST['confirmaSenha']);
                 if($senha == $confirmaSenha){
-                    $u->editar($dados['id'], $dados['nome'], $dados['email'], md5($senha), $dados['telefone'], $dados['celular']);
+                    $u->editar($dados['id'], $dados['nome'], $dados['email'], $senha, $dados['telefone'], $dados['celular']);
                     $u->setHashRecuperacao($dados['id'], Null);
                     $dados['aviso'] = '<div class="alert alert-success notificacao">Senha alterada com sucesso!</div>';
                     $this->loadTemplate('login', $dados);

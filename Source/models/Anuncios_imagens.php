@@ -43,7 +43,7 @@ class Anuncios_imagens extends model{
         $nome_bd = $nome.".jpg";
         $sql = $this->db->prepare("INSERT INTO anuncios_imagens SET id_anuncio = ?, url = ?");
         $sql->execute(array($id, $nome_bd));
-        file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/php/Classi-O/Source/assets/imgs/anuncios/'.$nome.'.jpg', $dados);
+        file_put_contents($_SERVER['DOCUMENT_ROOT'] . SERVER_URL .'/assets/imgs/anuncios/'.$nome.'.jpg', $dados);
         echo "1";
     }
 }

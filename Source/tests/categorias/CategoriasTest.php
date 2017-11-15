@@ -26,12 +26,12 @@ final class CategoriasTest extends PHPUnit_Extensions_Database_TestCase{
 
         $c = new Categorias();
         $result = $c->getCategorias();
-        $this->assertEquals(3, $result[0]['id']);
-        $this->assertEquals('Barcos', $result[0]['nome']);
+        $this->assertEquals(3, $result[2]['id']);
+        $this->assertEquals('Barcos', $result[2]['nome']);
         $this->assertEquals(2, $result[1]['id']);
         $this->assertEquals('Motos', $result[1]['nome']);
-        $this->assertEquals(1, $result[2]['id']);
-        $this->assertEquals('Carros', $result[2]['nome']);
+        $this->assertEquals(1, $result[0]['id']);
+        $this->assertEquals('Carros', $result[0]['nome']);
     }
 
     /**

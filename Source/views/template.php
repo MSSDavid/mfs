@@ -30,7 +30,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="<?php echo BASE_URL;?>/home/MinhaConta">Minha Conta</a>
-                                <a class="dropdown-item" href="<?php echo BASE_URL;?>/home/meusAnuncios">Meus Anúncios</a>
+                                <a class="dropdown-item" href="<?php echo BASE_URL;?>/anuncios">Meus Anúncios</a>
                                 <a class="dropdown-item" href="<?php echo BASE_URL;?>/login/logoff">Sair</a>
                             </div>
                         </li>
@@ -44,6 +44,7 @@
         <?php $this->loadViewInTemplate($viewName, $viewData) ?>
         <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery.mask.js"></script>
         <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/resize.js"></script>
         <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/script.js"></script>
     </body>
 </html>

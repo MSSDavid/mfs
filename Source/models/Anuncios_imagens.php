@@ -11,7 +11,7 @@ class Anuncios_imagens extends model{
     /**
      * This function delete a ad image in database.
      *
-     * @param   $id   The image's ID number saved in the database.
+     * @param   $id   int for the image's ID number saved in the database.
      */
     public function excluirFoto($id){
         $id_anuncio = 0;
@@ -34,7 +34,7 @@ class Anuncios_imagens extends model{
      */
     public function salvarFoto(){
         $imagem = $_POST['imagem'];
-        $id = addslashes($_POST['id']);
+        $id = base64_decode(base64_decode(addslashes($_POST['id'])));
         list($tipo, $dados) = explode(';', $imagem);
         list(, $tipo) = explode(':', $tipo);
         list(, $dados) = explode(',', $dados);
@@ -43,7 +43,7 @@ class Anuncios_imagens extends model{
         $nome_bd = $nome.".jpg";
         $sql = $this->db->prepare("INSERT INTO anuncios_imagens SET id_anuncio = ?, url = ?");
         $sql->execute(array($id, $nome_bd));
-        file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/php/Classi-O/assets/imgs/anuncios/'.$nome.'.jpg', $dados);
+        file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/php/Classi-O/Source/assets/imgs/anuncios/'.$nome.'.jpg', $dados);
         echo "1";
     }
 }

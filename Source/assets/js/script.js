@@ -1,3 +1,6 @@
+// Iniciando biblioteca
+var resize = new window.resize();
+resize.init();
 
 // Declarando variáveis
 var imagens;
@@ -77,8 +80,8 @@ function redimensionar()
     resize.photo(imagens[imagem_atual], 800, 'dataURL', function (imagem) {
 
         // Salvando imagem no servidor
-        var id = atob(atob($("#progresso").attr("data-id")));
-        $.post(BASE_URL+'/home/salvarFoto', {id:id, imagem: imagem}, function(get_retorno) {
+        var id = $("#progresso").attr("data-id");
+        $.post(BASE_URL+'/anuncios/salvarFoto', {id:id, imagem: imagem}, function(get_retorno) {
 
             // Definindo porcentagem
             var porcentagem = (imagem_atual + 1) / imagens.length * 100;

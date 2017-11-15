@@ -27,7 +27,7 @@ class Categorias extends model{
      * @return  array containing all data retrieved.
      */
     public function getCategorias(){
-        $sql = "SELECT * FROM categorias ORDER BY id DESC";
+        $sql = "SELECT * FROM categorias";
         $sql = $this->db->prepare($sql);
         $sql->execute();
         $sql = $sql->fetchAll();

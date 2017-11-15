@@ -11,15 +11,43 @@ class Anuncios extends model{
     /**
      * This function retrieves all data from an ad, by using it's ID.
      *
-     * @param   $id     The ad's ID number saved in the database.
+     * @param   $id     int for the ad's ID number saved in the database.
      * @return  array containing all data retrieved.
      */
     public function getAnuncio($id){
-        $sql = "SELECT * FROM anuncios WHERE id = ?";
+        $array = array();
+        $array['fotos'] = array();
+        $sql = "SELECT 
+                *, 
+                (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria, 
+                (SELECT usuarios.nome FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as nome, 
+                (SELECT usuarios.email FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as email, 
+                (SELECT usuarios.telefone FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as telefone, 
+                (SELECT usuarios.celular FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as celular FROM anuncios WHERE id =               ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($id));
-        $sql = $sql->fetch();
-        return $sql;
+        if($sql->rowCount() > 0){
+            $array = $sql->fetch();
+            $sql = $this->db->prepare("SELECT id, url FROM anuncios_imagens WHERE id_anuncio = ?");
+            $sql->execute(array($id));
+            if($sql->rowCount() > 0){
+                $array['fotos'] = $sql->fetchAll();
+            }
+        }
+        return $array;
+    }
+
+    /**
+     * This function retrieves all data of a user's ads using his ID
+     *
+     * @param   $id_usuario     int for the user's ID.
+     * @return  array containing all data retrieved.
+     */
+    public function getMeusAnuncios($id_usuario){
+        $sql = "SELECT *, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url FROM anuncios WHERE id_usuario = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id_usuario));
+        return $sql->fetchAll();
     }
 
     /**
@@ -38,12 +66,12 @@ class Anuncios extends model{
     /**
      * This function register a new ad in database.
      *
-     * @param   $id_usuario     The ad's id.
-     * @param   $titulo         The ad's title.
-     * @param   $descricao      The ad's description.
-     * @param   $id_categoria   The ad's category ID.
-     * @param   $preco          The ad's price.
-     * @param   $estado         The ad's conservation status.
+     * @param   $id_usuario     int for the ad's id.
+     * @param   $titulo         string fot the ad's title.
+     * @param   $descricao      string fot the ad's description.
+     * @param   $id_categoria   int for the ad's category ID.
+     * @param   $preco          double for the ad's price.
+     * @param   $estado         int for the ad's conservation status.
      */
     public function cadastrarAnuncio($id_usuario, $titulo, $descricao, $id_categoria, $preco, $estado){
         $sql = "INSERT INTO anuncios (id_usuario, titulo, dataPublicacao, descricao, id_categoria, preco, estado) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?)";
@@ -54,13 +82,13 @@ class Anuncios extends model{
     /**
      * This function edit a ad in database.
      *
-     * @param   $id             The ad's ID number saved in the database.
-     * @param   $id_usuario     The ad's id.
-     * @param   $titulo         The ad's title.
-     * @param   $descricao      The ad's description.
-     * @param   $id_categoria   The ad's category ID.
-     * @param   $preco          The ad's price.
-     * @param   $estado         The ad's conservation status.
+     * @param   $id             int for the ad's ID number saved in the database.
+     * @param   $id_usuario     int for the ad's id.
+     * @param   $titulo         string fot the ad's title.
+     * @param   $descricao      string fot the ad's description.
+     * @param   $id_categoria   int for the ad's category ID.
+     * @param   $preco          double for the ad's price.
+     * @param   $estado         int for the ad's conservation status.
      */
     public function editarAnuncio($id, $id_usuario, $titulo, $descricao, $id_categoria, $preco, $estado){
         $sql = "UPDATE anuncios SET id_usuario = ?, titulo = ?, descricao = ?, id_categoria = ?, preco = ?, estado = ? WHERE id = ?";
@@ -71,7 +99,7 @@ class Anuncios extends model{
     /**
      * This function delete a ad in database.
      *
-     * @param   $id   The ad's ID number saved in the database.
+     * @param   $id   int for the ad's ID number saved in the database.
      */
     public function excluir($id){
         $sql = $this->db->prepare("DELETE FROM anuncios WHERE id = ?");

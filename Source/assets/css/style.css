@@ -1,4 +1,41 @@
+button{
+    cursor: pointer;
+}
+
 .form-group label span{
     color: red;
     font-weight: bold;
+}
+
+#fundo-escuro{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 10;
+}
+
+#confirmacao-exclusao{
+    border-radius: 10px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    background-color: white;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+
+.foto-itens{
+    text-align: center;
+    width: fit-content;
+    float: left;
+}
+
+.foto-itens img{
+    max-width: 200px;
+    max-height: 200px;
 }

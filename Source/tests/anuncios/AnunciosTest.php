@@ -23,6 +23,29 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('1', $result['id_categoria']);
         $this->assertEquals(100.50, $result['preco']);
         $this->assertEquals('1', $result['estado']);
+        $this->assertEquals('Carros', $result['categoria']);
+        $this->assertEquals('Adminsitrador', $result['nome']);
+        $this->assertEquals('(62) 3232-3232', $result['telefone']);
+        $this->assertEquals('(62) 98585-8585', $result['celular']);
+        $this->assertEquals('adm@adm.com.br', $result['email']);
+    }
+
+    public function testGetMeusAnuncios(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $a = new Anuncios();
+        $result = $a->getMeusAnuncios(1);
+        $this->assertEquals(1, $result[0]['id']);
+        $this->assertEquals(1, $result[0]['id_usuario']);
+        $this->assertEquals("imagem_anuncio", $result[0]['url']);
+        $this->assertEquals('Teste Titulo', $result[0]['titulo']);
+        $this->assertEquals('2017-10-25 19:30:00', $result[0]['dataPublicacao']);
+        $this->assertEquals('Descrição do Anúncio', $result[0]['descricao']);
+        $this->assertEquals('1', $result[0]['id_categoria']);
+        $this->assertEquals(100.50, $result[0]['preco']);
+        $this->assertEquals('1', $result[0]['estado']);
     }
 
     public function testGetAnuncios(){
@@ -122,7 +145,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::classi-o:');
-            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL); CREATE TABLE `anuncios_imagens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_anuncio` INTEGER NOT NULL, `url` varchar(150) NOT NULL)');
+            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL); CREATE TABLE `anuncios_imagens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_anuncio` INTEGER NOT NULL, `url` varchar(150) NOT NULL); CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `hashRecuperacao` varchar(200)); CREATE TABLE `categorias` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':classi-o:');
         }
 

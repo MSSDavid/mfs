@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 include_once __DIR__.'/../../core/model.php';
 include_once __DIR__.'/../../models/Usuarios.php';
-
+include_once __DIR__.'/../../PHPMailer/PHPMailerAutoload.php';
 final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
 
     private $conn = null;

@@ -29,7 +29,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('(62) 98585-8585', $result['celular']);
         $this->assertEquals('adm@adm.com.br', $result['email']);
         $this->assertEquals(1, $result['fotos'][0]['id']);
-        $this->assertEquals(1, $result['imagem_anuncio'][0]['url']);
+        $this->assertEquals('imagem_anuncio', $result['fotos'][0]['url']);
     }
 
     public function testGetMeusAnuncios(){

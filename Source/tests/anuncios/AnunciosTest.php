@@ -15,6 +15,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $a = new Anuncios();
         $result = $a->getAnuncio(1);
+        print_r($result);
         $this->assertEquals(1, $result['id']);
         $this->assertEquals(1, $result['id_usuario']);
         $this->assertEquals('Teste Titulo', $result['titulo']);

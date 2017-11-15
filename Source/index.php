@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'config.php';
-
+require 'PHPMailer/PHPMailerAutoload.php';
 spl_autoload_register(function($class){
     if(file_exists('controllers/'.$class.'.php')){
         require 'controllers/'.$class.'.php';

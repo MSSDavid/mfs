@@ -7,10 +7,6 @@
  * @since   0.1
  */
 
-/**
- * Import PHPMailer library
- */
-require 'PHPMailer/PHPMailerAutoload.php';
 class Usuarios extends model{
 
     /**

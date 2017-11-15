@@ -26,12 +26,14 @@ class Anuncios extends model{
                 (SELECT usuarios.celular FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as celular FROM anuncios WHERE id =               ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($id));
-        if($sql->rowCount() > 0){
-            $array = $sql->fetch();
+        $sql = $sql->fetch();
+        if($sql && count($sql)){
+            $array = $sql;
             $sql = $this->db->prepare("SELECT id, url FROM anuncios_imagens WHERE id_anuncio = ?");
             $sql->execute(array($id));
-            if($sql->rowCount() > 0){
-                $array['fotos'] = $sql->fetchAll();
+            $sql = $sql->fetchAll();
+            if($sql && count($sql)){
+                $array['fotos'] = $sql;
             }
         }
         return $array;

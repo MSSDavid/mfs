@@ -39,7 +39,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="add_foto">Fotos do anúncio</label>
+            <label for="add_foto">Enviar Fotos</label>
             <div class="progress">
                 <div id="progresso" data-id="<?php echo base64_encode(base64_encode($id)); ?>" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0"
                      aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>

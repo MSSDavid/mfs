@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Nov-2017 às 04:39
+-- Generation Time: 16-Nov-2017 às 05:43
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `cidades` (
   `id` int(11) NOT NULL,
   `nome` varchar(120) NOT NULL,
-  `estado` int(5) NOT NULL
+  `id_estado` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cidades`
 --
 
-INSERT INTO `cidades` (`id`, `nome`, `estado`) VALUES
+INSERT INTO `cidades` (`id`, `nome`, `id_estado`) VALUES
 (1, 'Afonso Cláudio', 8),
 (2, 'Água Doce do Norte', 8),
 (3, 'Águia Branca', 8),
@@ -2104,7 +2104,7 @@ INSERT INTO `cidades` (`id`, `nome`, `estado`) VALUES
 (2065, 'Montes Claros', 11),
 (2066, 'Montezuma', 11),
 (2067, 'Morada Nova de Minas', 11);
-INSERT INTO `cidades` (`id`, `nome`, `estado`) VALUES
+INSERT INTO `cidades` (`id`, `nome`, `id_estado`) VALUES
 (2068, 'Morro da Garça', 11),
 (2069, 'Morro do Pilar', 11),
 (2070, 'Munhoz', 11),
@@ -4014,7 +4014,7 @@ INSERT INTO `cidades` (`id`, `nome`, `estado`) VALUES
 (3974, 'Cruz Alta', 23),
 (3975, 'Cruzaltense', 23),
 (3976, 'Cruzeiro do Sul', 23);
-INSERT INTO `cidades` (`id`, `nome`, `estado`) VALUES
+INSERT INTO `cidades` (`id`, `nome`, `id_estado`) VALUES
 (3977, 'David Canabarro', 23),
 (3978, 'Derrubadas', 23),
 (3979, 'Dezesseis de Novembro', 23),
@@ -5613,7 +5613,7 @@ INSERT INTO `cidades` (`id`, `nome`, `estado`) VALUES
 --
 ALTER TABLE `cidades`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_Cidade_estado` (`estado`);
+  ADD KEY `fk_Cidade_estado` (`id_estado`);
 
 --
 -- AUTO_INCREMENT for dumped tables

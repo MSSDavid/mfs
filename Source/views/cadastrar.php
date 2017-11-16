@@ -14,6 +14,21 @@
             <input type="password" name="senha" id="senha" class="form-control" data-alt="Senha" data-ob="1">
         </div>
         <div class="form-group">
+            <label>Estado:</label>
+            <select class="form-control" name="estado" id="estado" data-alt="Estado" data-ob="1">
+                <option value=""></option>
+                <?php foreach ($estados as $estado):?>
+                    <option value="<?php echo $estado['id'] ?>"><?php echo $estado['nome'] ?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Cidade:</label>
+            <select class="form-control" name="cidade" id="cidade" data-alt="Cidade" data-ob="1">
+                <option value="">Escolha um estado</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="nome">Telefone</label>
             <input type="text" name="telefone" id="telefone" class="form-control" data-alt="Telefone" data-ob="1">
         </div>
@@ -40,4 +55,22 @@
         $("#celular").mask("(00) 0000-#0000");
         $("#telefone").mask("(00) 0000-0000");
     }
+    $(function(){
+        $('#estado').change(function(){
+            if( $(this).val() ) {
+                $('#cidade').hide();
+                //$('.carregando').show();
+                $.getJSON('<?php echo BASE_URL ?>/home/cidades/' + $(this).val(), function(j){
+                    var options = '<option value=""></option>';
+                    for (var i = 0; i < j.length; i++) {
+                        options += '<option value="' + j[i].id + '">' + j[i].nome + '</option>';
+                    }
+                    $('#cidade').html(options).show();
+                    //$('.carregando').hide();
+                });
+            } else {
+                $('#cidade').html('<option value="">-- Escolha um estado --</option>');
+            }
+        });
+    });
 </script>

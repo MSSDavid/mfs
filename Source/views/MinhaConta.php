@@ -39,6 +39,10 @@
             <p><?php echo $dados['nome']?></p>
             <label>E-mail</label>
             <p><?php echo $dados['email']?></p>
+            <label>Estado</label>
+            <p><?php echo $dados['estado']?></p>
+            <label>Cidade</label>
+            <p><?php echo $dados['cidade']?></p>
             <label>Telefone</label>
             <p><?php echo $dados['telefone']?></p>
             <label>Celular</label>

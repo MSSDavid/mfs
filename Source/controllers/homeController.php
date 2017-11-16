@@ -61,10 +61,14 @@ class homeController extends controller{
             header("Location: ".BASE_URL);
         }
         $u = new Usuarios();
+        $e = new Estados();
+        $c = new Cidades();
         $dadosUsuario = $u->getDados(1, $_SESSION['cLogin']);
         $dados = array(
             'titulo' => 'Minha Conta',
-            'dados' => $dadosUsuario
+            'dados' => $dadosUsuario,
+            'estados' => $e->getEstados(),
+            'cidades' => $c->getCidades($dadosUsuario['id_estado']),
         );
         if(isset($_POST['nome']) && !empty($_POST['nome'])){
             $nome = addslashes($_POST['nome']);
@@ -73,11 +77,13 @@ class homeController extends controller{
             $novaSenha = addslashes($_POST['NovaSenha']);
             $telefone = addslashes($_POST['telefone']);
             $celular = addslashes($_POST['celular']);
+            $id_estado = addslashes($_POST['estado']);
+            $id_cidade = addslashes($_POST['cidade']);
 
             if(!empty($nome) && !empty($email)){
                 if($senha != "" && $novaSenha != ""){
                     if($u->login($email, $senha)){
-                        if($u->editar($_SESSION['cLogin'], $nome, $email, $novaSenha, $telefone, $celular)){
+                        if($u->editar($_SESSION['cLogin'], $nome, $email, $novaSenha, $telefone, $celular, $id_estado, $id_cidade)){
                             header("Location: ".BASE_URL."/home/MinhaConta");
                         }else{
                             $dados['aviso'] =
@@ -92,7 +98,7 @@ class homeController extends controller{
                             </div>';
                     }
                 }else{
-                    if($u->editar($_SESSION['cLogin'], $nome, $email, $senha, $telefone, $celular)){
+                    if($u->editar($_SESSION['cLogin'], $nome, $email, $senha, $telefone, $celular, $id_estado, $id_cidade)){
                         header("Location: ".BASE_URL."/home/MinhaConta");
                     }else{
                         $dados['aviso'] =
@@ -109,6 +115,15 @@ class homeController extends controller{
             }
         }
         $this->loadTemplate('editarConta', $dados);
+    }
+
+    /**
+     * This function retrieves citys of the selected state
+     */
+    public function cidades($id_estado){
+        $c = new Cidades();
+        $lista = $c->getCidades(addslashes($id_estado));
+        echo( json_encode( $lista ) );
     }
 
     /**

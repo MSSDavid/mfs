@@ -29,6 +29,13 @@
         margin-top: 10px;
         margin-bottom: 20px;
     }
+
+    .box-minha-conta-conteudo select{
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
     #bgbox{
         top: 0;
         left: 0;
@@ -63,6 +70,18 @@
                 <input class="form-control" id="nome" name="nome" data-ob="1" data-alt="Nome" value="<?php echo $dados['nome']?>">
                 <label>E-mail</label>
                 <input class="form-control" id="email" name="email" data-ob="1" data-alt="E-mail" value="<?php echo $dados['email']?>">
+                <label>Estado:</label>
+                <select class="form-control" name="estado" id="estado" data-alt="Estado" data-ob="1">
+                    <?php foreach ($estados as $estado):?>
+                        <option <?php if($estado['id'] == $dados['id_estado']) echo 'selected' ?> value="<?php echo $estado['id'] ?>"><?php echo $estado['nome'] ?></option>
+                    <?php endforeach;?>
+                </select>
+                <label>Cidade:</label>
+                <select class="form-control" name="cidade" id="cidade" data-alt="Cidade" data-ob="1">
+                    <?php foreach ($cidades as $cidade):?>
+                        <option <?php if($cidade['id'] == $dados['id_cidade']) echo 'selected' ?> value="<?php echo $cidade['id'] ?>"><?php echo $cidade['nome'] ?></option>
+                    <?php endforeach;?>
+                </select>
                 <label>Telefone</label>
                 <input class="form-control" id="telefone" name="telefone" data-ob="0" data-alt="Telefone" value="<?php echo $dados['telefone']?>">
                 <label>Celular</label>
@@ -119,4 +138,22 @@
         $("#confirm").hide('fast');
         $("#bgbox").hide();
     }
+    $(function(){
+        $('#estado').change(function(){
+            if( $(this).val() ) {
+                $('#cidade').hide();
+                //$('.carregando').show();
+                $.getJSON('<?php echo BASE_URL ?>/home/cidades/' + $(this).val(), function(j){
+                    var options = '<option value=""></option>';
+                    for (var i = 0; i < j.length; i++) {
+                        options += '<option value="' + j[i].id + '">' + j[i].nome + '</option>';
+                    }
+                    $('#cidade').html(options).show();
+                    //$('.carregando').hide();
+                });
+            } else {
+                $('#cidade').html('<option value="">-- Escolha um estado --</option>');
+            }
+        });
+    });
 </script>

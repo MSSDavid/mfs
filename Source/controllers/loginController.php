@@ -38,8 +38,10 @@ class loginController extends controller{
      */
     public function cadastrar(){
         $u = new Usuarios();
+        $e = new Estados();
         $dados = array(
-            'titulo' => 'Faça seu cadastro'
+            'titulo' => 'Faça seu cadastro',
+            'estados' => $e->getEstados(),
         );
         if(isset($_POST['nome']) && !empty($_POST['nome'])){
             $nome = addslashes($_POST['nome']);
@@ -47,9 +49,11 @@ class loginController extends controller{
             $senha = addslashes($_POST['senha']);
             $telefone = addslashes($_POST['telefone']);
             $celular = addslashes($_POST['celular']);
+            $id_estado = addslashes($_POST['estado']);
+            $id_cidade = addslashes($_POST['cidade']);
 
             if(!empty($nome) && !empty($email) && !empty($senha)){
-                if($u->cadastrar($nome, $email, $senha, $telefone, $celular)){
+                if($u->cadastrar($nome, $email, $senha, $telefone, $celular, $id_estado, $id_cidade)){
                     header("Location: ".BASE_URL."/login");
                 }else{
                     $dados['aviso'] =

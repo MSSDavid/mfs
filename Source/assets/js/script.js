@@ -140,9 +140,17 @@ function validar(){
 
 function validaForm(){
     var input = $('input');
+    var select = $('select');
     var primeiro = 0;
     for(i = 0; i < input.length; i++){
         var text = input[i];
+        if(text.getAttribute('data-ob') == "1" && text.value == ''){
+            msg = msg+'<li class="list-group-item">O campo ' + text.getAttribute('data-alt') + ' é obrigatório</li>';
+            primeiro = 1;
+        }
+    }
+    for(i = 0; i < select.length; i++){
+        var text = select[i];
         if(text.getAttribute('data-ob') == "1" && text.value == ''){
             msg = msg+'<li class="list-group-item">O campo ' + text.getAttribute('data-alt') + ' é obrigatório</li>';
             primeiro = 1;

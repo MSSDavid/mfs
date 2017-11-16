@@ -1,0 +1,22 @@
+<dataset>
+    <table name="cidades">
+        <column>id</column>
+        <column>nome</column>
+        <column>id_estado</column>
+        <row>
+            <value>1</value>
+            <value>Inhumas</value>
+            <value>1</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>Salvador</value>
+            <value>3</value>
+        </row>
+        <row>
+            <value>3</value>
+            <value>Rio de Janeiro</value>
+            <value>5</value>
+        </row>
+    </table>
+</dataset>

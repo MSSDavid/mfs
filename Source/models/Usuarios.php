@@ -53,7 +53,7 @@ class Usuarios extends model{
         }else{
             $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular, id_estado, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $sql = $this->db->prepare($sql);
-            $sql->execute(array($email, md5($senha), $nome, $telefone, $celular, $id_cidade, $id_estado));
+            $sql->execute(array($email, md5($senha), $nome, $telefone, $celular, $id_estado, $id_cidade));
             return true;
         }
     }
@@ -122,13 +122,13 @@ class Usuarios extends model{
      */
     public function getDados($tipo, $idOremail){
         if($tipo == 1){
-            $sql = "SELECT * FROM usuarios WHERE id = ?";
+            $sql = "SELECT *, (SELECT estados.nome FROM estados WHERE estados.id = usuarios.id_estado) as estado, (SELECT cidades.nome FROM cidades WHERE cidades.id = usuarios.id_cidade) as cidade FROM usuarios WHERE id = ?";
             $sql = $this->db->prepare($sql);
             $sql->execute(array($idOremail));
             $sql = $sql->fetch();
             return $sql;
         }else{
-            $sql = "SELECT * FROM usuarios WHERE email = ?";
+            $sql = "SELECT *, (SELECT estados.nome FROM estados WHERE estados.id = usuarios.id_estado) as estado, (SELECT cidades.nome FROM cidades WHERE cidades.id = usuarios.id_cidade) as cidade FROM usuarios WHERE email = ?";
             $sql = $this->db->prepare($sql);
             $sql->execute(array($idOremail));
             $sql = $sql->fetch();

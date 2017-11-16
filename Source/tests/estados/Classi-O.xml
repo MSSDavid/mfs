@@ -1,0 +1,32 @@
+<dataset>
+    <table name="estados">
+        <column>id</column>
+        <column>nome</column>
+        <column>uf</column>
+        <row>
+            <value>1</value>
+            <value>Goiás</value>
+            <value>GO</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>São Paulo</value>
+            <value>SP</value>
+        </row>
+        <row>
+            <value>3</value>
+            <value>Distrito Federal</value>
+            <value>DF</value>
+        </row>
+        <row>
+            <value>4</value>
+            <value>Bahia</value>
+            <value>BA</value>
+        </row>
+        <row>
+            <value>5</value>
+            <value>Rio de Janeiro</value>
+            <value>RJ</value>
+        </row>
+    </table>
+</dataset>

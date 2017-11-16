@@ -231,7 +231,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::classi-o:');
-            $db->exec('CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `id_estado` INTEGER NOT NULL, `id_cidade` INTEGER NOT NULL, `hashRecuperacao` varchar(200)); CREATE TABLE `estados` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(50), `uf` varchar(3)); CREATE TABLE `estados` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(200), `id_estado` INTEGER NOT NULL) ');
+            $db->exec('CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `id_estado` INTEGER NOT NULL, `id_cidade` INTEGER NOT NULL, `hashRecuperacao` varchar(200)); CREATE TABLE `estados` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(50), `uf` varchar(3)); CREATE TABLE `cidades` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(200), `id_estado` INTEGER NOT NULL) ');
             $this->conn =  $this->createDefaultDBConnection($db, ':classi-o:');
         }
 

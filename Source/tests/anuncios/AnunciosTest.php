@@ -50,6 +50,22 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('1', $result[0]['estado']);
     }
 
+    public function testGetTotalAnuncios(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $a = new Anuncios();
+        $filtros = array(
+            'categoria' => 1,
+            'preço' => 50-110,
+            'estado' => 1
+        );
+        $result = $a->getTotalAnuncios($filtros);
+        print_r($result);
+        $this->assertEquals(1, $result);
+    }
+
     public function testGetUltimosAnuncios(){
         $conn = $this->getConnection()->getConnection();
 

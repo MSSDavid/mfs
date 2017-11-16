@@ -23,7 +23,6 @@
                         $u = new Usuarios();
                         $u = $u->getDados(1, addslashes($_SESSION['cLogin']));
                         ?>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>">Anúncios</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Olá <?php echo $u['nome'];?>
@@ -34,6 +33,7 @@
                                 <a class="dropdown-item" href="<?php echo BASE_URL;?>/login/logoff">Sair</a>
                             </div>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>">Anúncios</a></li>
                     <?php else: ?>
                         <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/login/cadastrar">Cadastre-se</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/login">Login</a></li>

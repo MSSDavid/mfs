@@ -26,12 +26,9 @@ final class EstadosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('Goiás', $result[2]['nome']);
         $this->assertEquals('GO', $result[2]['uf']);
         $this->assertEquals(1, $result[2]['id']);
-        $this->assertEquals('Goiás', $result[3]['nome']);
-        $this->assertEquals('GO', $result[3]['uf']);
-        $this->assertEquals(1, $result[3]['id']);
-        $this->assertEquals('Rio de Janeiro', $result[4]['nome']);
-        $this->assertEquals('RJ', $result[4]['uf']);
-        $this->assertEquals(5, $result[4]['id']);
+        $this->assertEquals('Rio de Janeiro', $result[3]['nome']);
+        $this->assertEquals('RJ', $result[3]['uf']);
+        $this->assertEquals(5, $result[3]['id']);
         $this->assertEquals('São Paulo', $result[4]['nome']);
         $this->assertEquals('SP', $result[4]['uf']);
         $this->assertEquals(2, $result[4]['id']);

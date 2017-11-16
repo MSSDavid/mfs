@@ -1,4 +1,5 @@
 <div class="container-fluid" style="margin-top: 15px; padding-left: 30px; padding-right: 25px;">
+    <a id="botao-voltar" href="javascript:window.history.go(-1)" class="btn btn-primary">Voltar</a>
     <h1><?php echo $info['titulo'] ?></h1>
     <h6 style="color: #4a4a4a;padding-left: 20px;margin-bottom: 15px;">Publicado em <?php echo date('d/m/Y \à\s H:i', strtotime($info['dataPublicacao'])); ?></h6>
     <div class="row">

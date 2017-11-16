@@ -21,6 +21,7 @@
                 <td><?php echo $anuncio['titulo'] ?></td>
                 <td>R$ <?php echo str_replace("/", ",", str_replace(",", ".", str_replace(".","/", number_format($anuncio['preco'], 2)))) ?></td>
                 <td>
+                    <a class="btn btn-primary" id="botao-visualizar" href="<?php echo BASE_URL;?>/anuncios/abrir/<?php echo base64_encode(base64_encode($anuncio['id'])) ?>">Visualizar</a>
                     <a class="btn btn-info" href="<?php echo BASE_URL;?>/anuncios/editarAnuncio/<?php echo base64_encode(base64_encode($anuncio['id'])) ?>">Editar</a>
                     <button class="btn btn-danger" onclick="exAnuncio('<?php echo base64_encode(base64_encode($anuncio['id'])) ?>')">Excluir</button>
                 </td>

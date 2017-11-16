@@ -88,6 +88,25 @@ button{
     display: none;
 }
 
+#botao-visualizar{
+    background-color: #292b2c;
+    border-color: #292b2c;
+}
+
+#botao-visualizar:hover{
+    background-color: black;
+}
+
+#botao-voltar{
+    float: right;
+    background-color: #292b2c;
+    border-color: #292b2c;
+}
+
+#botao-voltar:hover{
+    background-color: black;
+}
+
 @media all and (max-width:576px) {
     #botao-filtros{
         display: block;

@@ -11,9 +11,27 @@ class homeController extends controller{
     /**
      * This function shows the homepage.
      */
-    public function index(){
+    public function index($p = 1){
+        $a = new Anuncios();
+        $c = new Categorias();
+        $filtros = array(
+            'categoria' => '',
+            'preço' => '',
+            'estado' => '',
+        );
+        if(isset($_GET['filtros'])){
+            $filtros = $_GET['filtros'];
+        }
+        $max_pagina = 4;
+        $total_paginas = ceil(count($a->getAnuncios())/$max_pagina);
+        $anuncios = $a->getUltimosAnuncios($p, $max_pagina, $filtros);
+        $categorias = $c->getCategorias();
         $dados = array(
-            'titulo' => 'Classi-O'
+            'titulo' => 'Classi-O',
+            'categorias' => $categorias,
+            'total_paginas' => $total_paginas,
+            'anuncios' => $anuncios,
+            'filtros' => $filtros,
         );
         $this->loadTemplate('home', $dados);
     }

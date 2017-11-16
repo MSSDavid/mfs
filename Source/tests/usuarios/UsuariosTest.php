@@ -31,7 +31,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $u = new Usuarios();
 
-        $result = $u->cadastrar('Samuel', 'samuel@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888');
+        $result = $u->cadastrar('Samuel', 'samuel@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888', 3, 4);
         $this->assertEquals(true, $result);
 
         $sql = "SELECT * FROM usuarios ORDER BY id desc";
@@ -45,9 +45,11 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(md5('456'), $result['senha']);
         $this->assertEquals('(62) 3535-3535', $result['telefone']);
         $this->assertEquals('(62) 98888-8888', $result['celular']);
+        $this->assertEquals(3, $result['id_estado']);
+        $this->assertEquals(4, $result['id_cidade']);
 
         //Teste do else
-        $result = $u->cadastrar('Samuel', 'adm@adm.com.br', md5('456'), '(62) 3535-3535', '(62) 98888-8888');
+        $result = $u->cadastrar('Samuel', 'adm@adm.com.br', md5('456'), '(62) 3535-3535', '(62) 98888-8888', 3, 4);
         $this->assertEquals(false, $result);
     }
 
@@ -57,7 +59,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $GLOBALS['db'] = $conn;
 
         $u = new Usuarios();
-        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888');
+        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888', 5, 6);
 
         $this->assertEquals(true, $result);
 
@@ -72,18 +74,20 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(md5('456'), $result['senha']);
         $this->assertEquals('(62) 3535-3535', $result['telefone']);
         $this->assertEquals('(62) 98888-8888', $result['celular']);
+        $this->assertEquals(5, $result['id_estado']);
+        $this->assertEquals(6, $result['id_cidade']);
 
 
         //Teste do else - Email já cadastrado
         $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular) VALUES ('samuel@ufg.br', '123', 'Samuel', '(62) 3514-1803', '(62) 98888-7777')";
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute();
-        $result = $u->editar(2, 'Samuel', 'samuel@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888');
+        $result = $u->editar(2, 'Samuel', 'samuel@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888', 5, 6);
         $this->assertEquals(false, $result);
 
 
         //Teste do if - Senha em branco
-        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '', '(62) 3535-3535', '(62) 98888-8888');
+        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '', '(62) 3535-3535', '(62) 98888-8888', 5, 6);
         $this->assertEquals(true, $result);
 
         $sql = "SELECT * FROM usuarios WHERE id = 1";
@@ -96,10 +100,12 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(md5('456'), $result['senha']);
         $this->assertEquals('(62) 3535-3535', $result['telefone']);
         $this->assertEquals('(62) 98888-8888', $result['celular']);
+        $this->assertEquals(5, $result['id_estado']);
+        $this->assertEquals(6, $result['id_cidade']);
 
 
         // Teste do else - Senha preenchida
-        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '789', '(62) 3535-3535', '(62) 98888-8888');
+        $result = $u->editar(1, 'Samuel', 'samuel@adm.com.br', '789', '(62) 3535-3535', '(62) 98888-8888', 5, 6);
         $this->assertEquals(true, $result);
 
         $sql = "SELECT * FROM usuarios WHERE id = 1";
@@ -112,6 +118,8 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(md5('789'), $result['senha']);
         $this->assertEquals('(62) 3535-3535', $result['telefone']);
         $this->assertEquals('(62) 98888-8888', $result['celular']);
+        $this->assertEquals(5, $result['id_estado']);
+        $this->assertEquals(6, $result['id_cidade']);
 
     }
 
@@ -153,6 +161,8 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('adm@adm.com.br', $result['email']);
         $this->assertEquals('(62) 3232-3232', $result['telefone']);
         $this->assertEquals('(62) 98585-8585', $result['celular']);
+        $this->assertEquals(1, $result['id_estado']);
+        $this->assertEquals(2, $result['id_cidade']);
 
         //TESTE DO ELSE
         $result = $u->getDados(2, "adm@adm.com.br");
@@ -161,6 +171,8 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('adm@adm.com.br', $result['email']);
         $this->assertEquals('(62) 3232-3232', $result['telefone']);
         $this->assertEquals('(62) 98585-8585', $result['celular']);
+        $this->assertEquals(1, $result['id_estado']);
+        $this->assertEquals(2, $result['id_cidade']);
     }
 
     public function testRecuperarSenha(){
@@ -207,6 +219,8 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('adm@adm.com.br', $result['email']);
         $this->assertEquals('(62) 3232-3232', $result['telefone']);
         $this->assertEquals('(62) 98585-8585', $result['celular']);
+        $this->assertEquals(1, $result['id_estado']);
+        $this->assertEquals(2, $result['id_cidade']);
     }
 
     /**
@@ -217,7 +231,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::classi-o:');
-            $db->exec('CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `hashRecuperacao` varchar(200))');
+            $db->exec('CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `id_estado` INTEGER NOT NULL, `id_cidade` INTEGER NOT NULL, `hashRecuperacao` varchar(200))');
             $this->conn =  $this->createDefaultDBConnection($db, ':classi-o:');
         }
 

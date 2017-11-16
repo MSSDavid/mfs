@@ -39,9 +39,11 @@ class Usuarios extends model{
      * @param   $senha      string for the user's password.
      * @param   $telefone   string for the user's phone.
      * @param   $celular    string for the user's cellphone.
+     * @param   $id_estado  int for the user's state ID.
+     * @param   $id_cidade  int for the user's city ID.
      * @return  boolean False for email alread registery, or instead True.
      */
-    public function cadastrar($nome, $email, $senha, $telefone, $celular){
+    public function cadastrar($nome, $email, $senha, $telefone, $celular, $id_estado, $id_cidade){
         $sql = "SELECT * FROM usuarios WHERE email = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($email));
@@ -49,9 +51,9 @@ class Usuarios extends model{
         if($sql && count($sql)){
             return false;
         }else{
-            $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular, id_estado, id_cidade) VALUES (?, ?, ?, ?, ?)";
             $sql = $this->db->prepare($sql);
-            $sql->execute(array($email, md5($senha), $nome, $telefone, $celular));
+            $sql->execute(array($email, md5($senha), $nome, $telefone, $celular, $id_cidade, $id_estado));
             return true;
         }
     }
@@ -66,9 +68,11 @@ class Usuarios extends model{
      * @param   $senha      string for the user's password.
      * @param   $telefone   string for the user's phone.
      * @param   $celular    string for the user's cellphone.
+     * @param   $id_estado  int for the user's state ID.
+     * @param   $id_cidade  int for the user's city ID.
      * @return  boolean False for email alread registery, or instead True.
      */
-    public function editar($id, $nome, $email, $senha, $telefone, $celular){
+    public function editar($id, $nome, $email, $senha, $telefone, $celular, $id_estado, $id_cidade){
         $sql = "SELECT * FROM usuarios WHERE email = ? AND id != ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($email, $id));
@@ -77,14 +81,14 @@ class Usuarios extends model{
             return false;
         }else{
             if(empty($senha)){
-                $sql = "UPDATE usuarios SET email = ?, nome = ?, telefone = ?, celular = ? WHERE id = ?";
+                $sql = "UPDATE usuarios SET email = ?, nome = ?, telefone = ?, celular = ?, id_estado = ?, id_cidade = ? WHERE id = ?";
                 $sql = $this->db->prepare($sql);
-                $sql->execute(array($email, $nome, $telefone, $celular, $id));
+                $sql->execute(array($email, $nome, $telefone, $celular, $id_estado, $id_cidade, $id));
                 return true;
             }else{
-                $sql = "UPDATE usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ? WHERE id = ?";
+                $sql = "UPDATE usuarios SET email = ?, senha = ?, nome = ?, telefone = ?, celular = ?, id_estado = ?, id_cidade = ? WHERE id = ?";
                 $sql = $this->db->prepare($sql);
-                $sql->execute(array($email, md5($senha), $nome, $telefone, $celular, $id));
+                $sql->execute(array($email, md5($senha), $nome, $telefone, $celular, $id_estado, $id_cidade, $id));
                 return true;
             }
         }

@@ -12,6 +12,19 @@ class anunciosController extends controller{
         $this->loadTemplate('meusAnuncios', $dados);
     }
 
+    public function abrir($id){
+        $dados = array();
+        $a = new Anuncios();
+        if(isset($id) && !empty($id)){
+            $id = addslashes(base64_decode(base64_decode($id)));
+        }else{
+            header("Location: ".BASE_URL);
+        }
+        $dados['info'] = $a->getAnuncio($id);
+        $dados['titulo'] = 'Classi-O - '.$dados['info']['titulo'];
+        $this->loadTemplate('expandirAnuncio', $dados);
+    }
+
     public function novoAnuncio(){
         $dados = array();
         $a = new Anuncios();

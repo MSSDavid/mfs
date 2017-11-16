@@ -1,8 +1,9 @@
 <div class="container-fluid" style="margin-top: 15px">
     <div class="row">
         <div class="col-sm-3">
-            <h4>Pesquisa Avançada</h4>
-            <form method="GET">
+            <h4 style="margin-bottom: 15px;">Pesquisa Avançada</h4>
+            <button class="btn btn-default" id="botao-filtros" style="width: 100%;background-color: #292b2c;color: white;margin-bottom: 10px;">Filtros</button>
+            <form id="form-filtros" method="GET">
                 <div class="form-group">
                     <label for="categoria">Estado</label>
                     <select name="filtros[estados]" id="estado" class="form-control">
@@ -63,7 +64,7 @@
             </form>
         </div>
         <div class="col-sm-9">
-            <h4>Últimos Anúncios</h4>
+            <h4 style="margin-bottom: 15px;">Últimos Anúncios</h4>
             <table class="table table-striped">
                 <tbody>
                 <?php foreach($anuncios as $anuncio):?>
@@ -74,7 +75,7 @@
                             <td><img src="<?php echo BASE_URL;?>/assets/imgs/default.png" style="height: 60px"></td>
                         <?php endif; ?>
                         <td>
-                            <a href="<?php echo BASE_URL;?>/home/abrir/<?php echo base64_encode(base64_encode($anuncio['id'])) ?>"><?php echo $anuncio['titulo']?></a><br>
+                            <a href="<?php echo BASE_URL;?>/anuncios/abrir/<?php echo base64_encode(base64_encode($anuncio['id_anuncio'])) ?>"><?php echo $anuncio['titulo']?></a><br>
                             <?php echo $anuncio['categoria'] ?><br>
                             <?php echo $anuncio['nomeCidade'] ?>, <?php echo $anuncio['uf'] ?>
                         </td>
@@ -108,6 +109,11 @@
             } else {
                 $('#cidade').html('<option value="">Escolha um estado</option>');
             }
+        });
+    });
+    $(function(){
+        $('#botao-filtros').on('click', function(){
+            $('#form-filtros').slideToggle();
         });
     });
 </script>

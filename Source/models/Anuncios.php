@@ -19,11 +19,11 @@ class Anuncios extends model{
         $array['fotos'] = array();
         $sql = "SELECT 
                 *, 
-                (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria, 
-                (SELECT usuarios.nome FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as nome, 
-                (SELECT usuarios.email FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as email, 
-                (SELECT usuarios.telefone FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as telefone, 
-                (SELECT usuarios.celular FROM usuarios WHERE usuarios.id = anuncios.id_usuario limit 1) as celular FROM anuncios WHERE id =               ?";
+                (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria,
+                (SELECT estados.nome FROM estados WHERE estados.id = id_estado limit 1) as nomeEstado,
+                (SELECT estados.uf FROM estados WHERE estados.id = id_estado limit 1) as uf,
+                (SELECT cidades.nome FROM cidades WHERE cidades.id = id_cidade limit 1) as nomeCidade
+                FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario WHERE anuncios.id = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($id));
         $sql = $sql->fetch();
@@ -81,12 +81,13 @@ class Anuncios extends model{
         }
 
         $sql = $this->db->prepare("SELECT *,
- (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url,
-  (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria,
-   (SELECT estados.nome FROM estados WHERE estados.id = id_estado limit 1) as nomeEstado,
-   (SELECT estados.uf FROM estados WHERE estados.id = id_estado limit 1) as uf,
-   (SELECT cidades.nome FROM cidades WHERE cidades.id = id_cidade limit 1) as nomeCidade
-	 FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario WHERE ".implode(' AND ', $filtrostring)." ORDER BY anuncios.id DESC LIMIT ".$offset.", ".$max);
+          anuncios.id as id_anuncio,
+          (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url,
+          (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria,
+          (SELECT estados.nome FROM estados WHERE estados.id = id_estado limit 1) as nomeEstado,
+          (SELECT estados.uf FROM estados WHERE estados.id = id_estado limit 1) as uf,
+          (SELECT cidades.nome FROM cidades WHERE cidades.id = id_cidade limit 1) as nomeCidade
+          FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario WHERE ".implode(' AND ', $filtrostring)." ORDER BY             anuncios.id DESC LIMIT ".$offset.", ".$max);
 
         if(!empty($filtros['categoria'])){
             $sql->bindValue(":id_categoria", $filtros['categoria']);

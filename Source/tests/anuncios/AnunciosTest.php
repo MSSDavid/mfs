@@ -64,7 +64,6 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
             'cidades' => '1'
         );
         $result = $a->getTotalAnuncios($filtros);
-        print_r($result);
         $this->assertEquals(1, $result);
     }
 
@@ -84,7 +83,6 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
             'cidades' => '1'
         );
         $result = $a->getUltimosAnuncios($page, $max, $filtros);
-        print_r($result);
         $this->assertEquals(1, $result[0]['id']);
         $this->assertEquals(1, $result[0]['id_usuario']);
         $this->assertEquals("imagem_anuncio", $result[0]['url']);

@@ -28,7 +28,7 @@ class homeController extends controller{
         if(isset($_GET['filtros'])){
             $filtros = $_GET['filtros'];
         }
-        $max_pagina = 4;
+        $max_pagina = 20;
         $total_paginas = ceil($a->getTotalAnuncios($filtros)/$max_pagina);
         $anuncios = $a->getUltimosAnuncios($p, $max_pagina, $filtros);
         $categorias = $c->getCategorias();

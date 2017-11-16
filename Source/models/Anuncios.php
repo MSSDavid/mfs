@@ -3,8 +3,8 @@
  * This class retrieves and saves data of the ad.
  *
  * @author  samuelrcosta
- * @version 0.1.0, 25/10/2017
- * @since   0.1
+ * @version 0.5.0, 25/10/2017
+ * @since   0.5
  */
 class Anuncios extends model{
 
@@ -49,6 +49,46 @@ class Anuncios extends model{
         $sql = "SELECT *, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url FROM anuncios WHERE id_usuario = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($id_usuario));
+        return $sql->fetchAll();
+    }
+
+    /**
+     * This function retrieves all data from ad's into database acording filters, max of results and pages of result.
+     *
+     * @param   $page       int for the number of the page.
+     * @param   $max        int for the maximum number of records
+     * @param   $filtros    array for the filters
+     * @return  array containing all data retrieved.
+     */
+    public function getUltimosAnuncios($page, $max, $filtros){
+        $offset = ($page - 1) * $max;
+
+        $filtrostring = array('1=1');
+        if(!empty($filtros['categoria'])){
+            $filtrostring[] = 'anuncios.id_categoria = :id_categoria';
+        }
+        if(!empty($filtros['preço'])){
+            $filtrostring[] = 'anuncios.preco BETWEEN :valor1 AND :valor2';
+        }
+        if(!empty($filtros['estado'])){
+            $filtrostring[] = 'anuncios.estado = :estado';
+        }
+
+        $sql = $this->db->prepare("SELECT *, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT usuarios.nome FROM usuarios WHERE usuarios.id = anuncios.id_categoria limit 1) as categoria FROM anuncios WHERE ".implode(' AND ', $filtrostring)." ORDER BY id DESC LIMIT ".$offset.", ".$max);
+
+        if(!empty($filtros['categoria'])){
+            $sql->bindValue(":id_categoria", $filtros['categoria']);
+        }
+        if(!empty($filtros['preço'])){
+            $preco = explode("-", $filtros['preço']);
+            $sql->bindValue(":valor1", $preco[0]);
+            $sql->bindValue(":valor2", $preco[1]);
+        }
+        if(!empty($filtros['estado'])){
+            $sql->bindValue(":estado", $filtros['estado']);
+        }
+
+        $sql->execute();
         return $sql->fetchAll();
     }
 

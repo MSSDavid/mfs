@@ -74,10 +74,10 @@ class Anuncios extends model{
             $filtrostring[] = 'anuncios.estado = :estado';
         }
         if(!empty($filtros['estados'])){
-            $filtrostring[] = 'estados.id = :ufs';
+            $filtrostring[] = 'id_estado = :ufs';
         }
         if(!empty($filtros['cidades'])){
-            $filtrostring[] = 'cidades.id = :cidades';
+            $filtrostring[] = 'id_cidade = :cidades';
         }
 
         $sql = $this->db->prepare("SELECT *,
@@ -129,10 +129,10 @@ class Anuncios extends model{
             $filtrostring[] = 'anuncios.estado = :estado';
         }
         if(!empty($filtros['estados'])){
-            $filtrostring[] = 'estados.id = :ufs';
+            $filtrostring[] = 'id_estado = :ufs';
         }
         if(!empty($filtros['cidades'])){
-            $filtrostring[] = 'cidades.id = :cidades';
+            $filtrostring[] = 'id_cidade = :cidades';
         }
 
         $sql = $this->db->prepare("SELECT *,

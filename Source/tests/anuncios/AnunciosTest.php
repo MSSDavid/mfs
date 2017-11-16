@@ -60,10 +60,11 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $max = 30;
         $filtros = array(
             'categoria' => 1,
-            'preço' => 50.00-110.00,
+            'preço' => 50-110,
             'estado' => 1
         );
         $result = $a->getUltimosAnuncios($page, $max, $filtros);
+        print_r($result);
         $this->assertEquals(1, $result[0]['id']);
         $this->assertEquals(1, $result[0]['id_usuario']);
         $this->assertEquals("imagem_anuncio", $result[0]['url']);

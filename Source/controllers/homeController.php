@@ -3,13 +3,15 @@
  * This class is the Controller of the HomePage.
  *
  * @author  samuelrcosta
- * @version 0.1.0, 10/10/2017
+ * @version 1.2.0, 10/10/2017
  * @since   0.1
  */
 class homeController extends controller{
 
     /**
      * This function shows the homepage.
+     *
+     * @param   $p  int for the page number
      */
     public function index($p = 1){
         $a = new Anuncios();

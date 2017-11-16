@@ -57,9 +57,11 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $a = new Anuncios();
         $filtros = array(
-            'categoria' => 1,
-            'preço' => 50-110,
-            'estado' => 1
+            'categoria' => '1',
+            'preço' => '50-200',
+            'estado' => '1',
+            'estados' => '1',
+            'cidades' => '1'
         );
         $result = $a->getTotalAnuncios($filtros);
         print_r($result);
@@ -75,9 +77,11 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $page = 1;
         $max = 30;
         $filtros = array(
-            'categoria' => 1,
-            'preço' => 50-110,
-            'estado' => 1
+            'categoria' => '1',
+            'preço' => '50-200',
+            'estado' => '1',
+            'estados' => '1',
+            'cidades' => '1'
         );
         $result = $a->getUltimosAnuncios($page, $max, $filtros);
         print_r($result);

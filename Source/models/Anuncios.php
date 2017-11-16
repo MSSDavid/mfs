@@ -80,7 +80,13 @@ class Anuncios extends model{
             $filtrostring[] = 'cidades.id = :cidades';
         }
 
-        $sql = $this->db->prepare("SELECT *, cidades.nome as nomeCidade, estados.nome as nomeEstado, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario LEFT JOIN estados ON estados.id = id_estado LEFT JOIN cidades on cidades.id = id_cidade WHERE ".implode(' AND ', $filtrostring)." ORDER BY anuncios.id DESC LIMIT ".$offset.", ".$max);
+        $sql = $this->db->prepare("SELECT *,
+ (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url,
+  (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria,
+   (SELECT estados.nome FROM estados WHERE estados.id = id_estado limit 1) as nomeEstado,
+   (SELECT estados.uf FROM estados WHERE estados.id = id_estado limit 1) as uf,
+   (SELECT cidades.nome FROM cidades WHERE cidades.id = id_cidade limit 1) as nomeCidade
+	 FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario WHERE ".implode(' AND ', $filtrostring)." ORDER BY anuncios.id DESC LIMIT ".$offset.", ".$max);
 
         if(!empty($filtros['categoria'])){
             $sql->bindValue(":id_categoria", $filtros['categoria']);
@@ -129,7 +135,12 @@ class Anuncios extends model{
             $filtrostring[] = 'cidades.id = :cidades';
         }
 
-        $sql = $this->db->prepare("SELECT *, cidades.nome as nomeCidade, estados.nome as nomeEstado, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario LEFT JOIN estados ON estados.id = id_estado LEFT JOIN cidades on cidades.id = id_cidade WHERE ".implode(' AND ', $filtrostring)." ORDER BY anuncios.id ");
+        $sql = $this->db->prepare("SELECT *,
+ (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url,
+  (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria,
+   (SELECT estados.nome FROM estados WHERE estados.id = id_estado limit 1) as nomeEstado,
+   (SELECT cidades.nome FROM cidades WHERE cidades.id = id_cidade limit 1) as nomeCidade
+	 FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario WHERE ".implode(' AND ', $filtrostring)." ORDER BY anuncios.id ");
 
         if(!empty($filtros['categoria'])){
             $sql->bindValue(":id_categoria", $filtros['categoria']);

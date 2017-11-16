@@ -79,7 +79,7 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
 
 
         //Teste do else - Email já cadastrado
-        $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular) VALUES ('samuel@ufg.br', '123', 'Samuel', '(62) 3514-1803', '(62) 98888-7777')";
+        $sql = "INSERT INTO usuarios (email, senha, nome, telefone, celular, id_estado, id_cidade) VALUES ('samuel@ufg.br', '123', 'Samuel', '(62) 3514-1803', '(62) 98888-7777', 5, 6)";
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute();
         $result = $u->editar(2, 'Samuel', 'samuel@adm.com.br', '456', '(62) 3535-3535', '(62) 98888-8888', 5, 6);

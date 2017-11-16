@@ -74,7 +74,7 @@ class Anuncios extends model{
             $filtrostring[] = 'anuncios.estado = :estado';
         }
 
-        $sql = $this->db->prepare("SELECT *, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT usuarios.nome FROM usuarios WHERE usuarios.id = anuncios.id_categoria limit 1) as categoria FROM anuncios WHERE ".implode(' AND ', $filtrostring)." ORDER BY id DESC LIMIT ".$offset.", ".$max);
+        $sql = $this->db->prepare("SELECT *, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria FROM anuncios WHERE ".implode(' AND ', $filtrostring)." ORDER BY id DESC LIMIT ".$offset.", ".$max);
 
         if(!empty($filtros['categoria'])){
             $sql->bindValue(":id_categoria", $filtros['categoria']);

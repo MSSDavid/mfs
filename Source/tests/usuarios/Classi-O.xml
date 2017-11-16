@@ -1,5 +1,26 @@
 <dataset>
-
+    <table name="usuarios">
+        <column>id</column>
+        <column>nome</column>
+        <column>email</column>
+        <column>senha</column>
+        <column>telefone</column>
+        <column>celular</column>
+        <column>id_estado</column>
+        <column>id_cidade</column>
+        <column>hashRecuperacao</column>
+        <row>
+            <value>1</value>
+            <value>Administrador</value>
+            <value>adm@adm.com.br</value>
+            <value>202cb962ac59075b964b07152d234b70</value>
+            <value>(62) 3232-3232</value>
+            <value>(62) 98585-8585</value>
+            <value>1</value>
+            <value>2</value>
+            <value>b0583adaea49e0b620f660dc2de6c40a</value>
+        </row>
+    </table>
     <table name="estados">
         <column>id</column>
         <column>nome</column>

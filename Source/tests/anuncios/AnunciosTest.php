@@ -50,6 +50,22 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('1', $result[0]['estado']);
     }
 
+    public function testGetTotalAnuncios(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $a = new Anuncios();
+        $filtros = array(
+            'categoria' => 1,
+            'preço' => 50-110,
+            'estado' => 1
+        );
+        $result = $a->getTotalAnuncios($filtros);
+        print_r($result);
+        $this->assertEquals(1, $result);
+    }
+
     public function testGetUltimosAnuncios(){
         $conn = $this->getConnection()->getConnection();
 
@@ -173,7 +189,7 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::classi-o:');
-            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL); CREATE TABLE `anuncios_imagens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_anuncio` INTEGER NOT NULL, `url` varchar(150) NOT NULL); CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `hashRecuperacao` varchar(200)); CREATE TABLE `categorias` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL)');
+            $db->exec('CREATE TABLE `anuncios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_usuario` INTEGER NOT NULL, `titulo` varchar(150) NOT NULL, `dataPublicacao` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, `descricao` text NOT NULL, `id_categoria` int(11) NOT NULL, `preco` double NOT NULL, `estado` INTEGER NOT NULL); CREATE TABLE `anuncios_imagens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_anuncio` INTEGER NOT NULL, `url` varchar(150) NOT NULL); CREATE TABLE `usuarios` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(200) NOT NULL, `telefone` varchar(20) NOT NULL, `celular` varchar(20), `id_estado` int(11) NOT NULL, `id_cidade` int(11) NOT NULL, `hashRecuperacao` varchar(200)); CREATE TABLE `categorias` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL);CREATE TABLE `cidades` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `id_estado` int(11) NOT NULL); CREATE TABLE `estados` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(150) NOT NULL, `uf` varchar(3) NOT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':classi-o:');
         }
 

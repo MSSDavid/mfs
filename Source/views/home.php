@@ -4,6 +4,28 @@
             <h4>Pesquisa Avançada</h4>
             <form method="GET">
                 <div class="form-group">
+                    <label for="categoria">Estado</label>
+                    <select name="filtros[estados]" id="estado" class="form-control">
+                        <option></option>
+                        <?php foreach ($estados as $estado): ?>
+                            <option value="<?php echo $estado['id']?>" <?php echo($estado['id'] == $filtros['estados'])?'selected="selected"':''?>><?php echo $estado['nome']?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cidade:</label>
+                    <select class="form-control" name="filtros[cidades]" id="cidade">
+                        <?php if(!empty($filtros['estados'])): ?>
+                            <option></option>
+                            <?php foreach ($cidades as $cidade): ?>
+                                <option value="<?php echo $cidade['id']?>" <?php echo($cidade['id'] == $filtros['cidades'])?'selected="selected"':''?>><?php echo $cidade['nome']?></option>
+                            <?php endforeach; ?>
+                        <?php elseif(empty($filtros['cidades'])): ?>
+                            <option value="">Escolha um estado</option>
+                        <?php endif; ?>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="categoria">Categoria</label>
                     <select name="filtros[categoria]" class="form-control">
                         <option></option>
@@ -53,18 +75,39 @@
                         <?php endif; ?>
                         <td>
                             <a href="<?php echo BASE_URL;?>/home/abrir/<?php echo base64_encode(base64_encode($anuncio['id'])) ?>"><?php echo $anuncio['titulo']?></a><br>
-                            <?php echo $anuncio['categoria'] ?>
+                            <?php echo $anuncio['categoria'] ?><br>
+                            <?php echo $anuncio['nomeCidade'] ?>, <?php echo $anuncio['uf'] ?>
                         </td>
-                        <td>R$ <?php echo str_replace(".", ",", $anuncio['preco']) ?></td>
+                        <td style="line-height: 55px;">R$ <?php echo str_replace("/", ",", str_replace(",", ".", str_replace(".","/", number_format($anuncio['preco'], 2)))) ?></td>
                     </tr>
                 <?php endforeach;?>
                 </tbody>
             </table>
             <ul class="pagination">
                 <?php for($q=1; $q <= $total_paginas; $q++): ?>
-                    <li class="page-item <?php echo ($p == $q)?'active':''; ?>"><a class="page-link" href="<?php echo BASE_URL;?>/home/index/<?php echo $q; ?>/"><?php echo $q ?></a></li>
+                    <li class="page-item <?php echo ($p == $q)?'active':''; ?>"><a class="page-link" href="<?php echo BASE_URL;?>/home/index/<?php echo $q;if(isset($_GET['filtros'])) echo "/?".explode("?", $_SERVER['REQUEST_URI'])[1]; ?>"><?php echo $q; ?></a></li>
                 <?php endfor; ?>
             </ul>
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        $('#estado').change(function(){
+            if( $(this).val() ) {
+                $('#cidade').hide();
+                //$('.carregando').show();
+                $.getJSON('<?php echo BASE_URL ?>/home/cidades/' + $(this).val(), function(j){
+                    var options = '<option value=""></option>';
+                    for (var i = 0; i < j.length; i++) {
+                        options += '<option value="' + j[i].id + '">' + j[i].nome + '</option>';
+                    }
+                    $('#cidade').html(options).show();
+                    //$('.carregando').hide();
+                });
+            } else {
+                $('#cidade').html('<option value="">Escolha um estado</option>');
+            }
+        });
+    });
+</script>

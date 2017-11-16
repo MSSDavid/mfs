@@ -14,25 +14,34 @@ class homeController extends controller{
     public function index($p = 1){
         $a = new Anuncios();
         $c = new Categorias();
+        $e = new Estados();
+        $cid = new Cidades();
         $filtros = array(
             'categoria' => '',
             'preço' => '',
             'estado' => '',
+            'estados' => '',
+            'cidades' => ''
         );
         if(isset($_GET['filtros'])){
             $filtros = $_GET['filtros'];
         }
         $max_pagina = 4;
-        $total_paginas = ceil(count($a->getAnuncios())/$max_pagina);
+        $total_paginas = ceil($a->getTotalAnuncios($filtros)/$max_pagina);
         $anuncios = $a->getUltimosAnuncios($p, $max_pagina, $filtros);
         $categorias = $c->getCategorias();
         $dados = array(
             'titulo' => 'Classi-O',
             'categorias' => $categorias,
+            'estados' => $e->getEstados(),
             'total_paginas' => $total_paginas,
             'anuncios' => $anuncios,
             'filtros' => $filtros,
+            'p' => $p,
         );
+        if(!empty($filtros['estados'])){
+            $dados['cidades'] = $cid->getCidades($filtros['estados']);
+        }
         $this->loadTemplate('home', $dados);
     }
 

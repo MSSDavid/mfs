@@ -73,8 +73,14 @@ class Anuncios extends model{
         if(!empty($filtros['estado'])){
             $filtrostring[] = 'anuncios.estado = :estado';
         }
+        if(!empty($filtros['estados'])){
+            $filtrostring[] = 'estados.id = :ufs';
+        }
+        if(!empty($filtros['cidades'])){
+            $filtrostring[] = 'cidades.id = :cidades';
+        }
 
-        $sql = $this->db->prepare("SELECT *, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria FROM anuncios WHERE ".implode(' AND ', $filtrostring)." ORDER BY id DESC LIMIT ".$offset.", ".$max);
+        $sql = $this->db->prepare("SELECT *, cidades.nome as nomeCidade, estados.nome as nomeEstado, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario LEFT JOIN estados ON estados.id = id_estado LEFT JOIN cidades on cidades.id = id_cidade WHERE ".implode(' AND ', $filtrostring)." ORDER BY anuncios.id DESC LIMIT ".$offset.", ".$max);
 
         if(!empty($filtros['categoria'])){
             $sql->bindValue(":id_categoria", $filtros['categoria']);
@@ -87,9 +93,64 @@ class Anuncios extends model{
         if(!empty($filtros['estado'])){
             $sql->bindValue(":estado", $filtros['estado']);
         }
+        if(!empty($filtros['estados'])){
+            $sql->bindValue(":ufs", $filtros['estados']);
+        }
+        if(!empty($filtros['cidades'])){
+            $sql->bindValue(":cidades", $filtros['cidades']);
+        }
 
         $sql->execute();
         return $sql->fetchAll();
+    }
+
+    /**
+     * This function retrieves the count of ad's into database acording filters.
+     *
+     * @param   $filtros    array for the filters
+     * @return  int with the value o total ad's.
+     */
+    public function getTotalAnuncios($filtros){
+
+        $filtrostring = array('1=1');
+        if(!empty($filtros['categoria'])){
+            $filtrostring[] = 'anuncios.id_categoria = :id_categoria';
+        }
+        if(!empty($filtros['preço'])){
+            $filtrostring[] = 'anuncios.preco BETWEEN :valor1 AND :valor2';
+        }
+        if(!empty($filtros['estado'])){
+            $filtrostring[] = 'anuncios.estado = :estado';
+        }
+        if(!empty($filtros['estados'])){
+            $filtrostring[] = 'estados.id = :ufs';
+        }
+        if(!empty($filtros['cidades'])){
+            $filtrostring[] = 'cidades.id = :cidades';
+        }
+
+        $sql = $this->db->prepare("SELECT *, cidades.nome as nomeCidade, estados.nome as nomeEstado, (SELECT anuncios_imagens.url FROM anuncios_imagens WHERE anuncios_imagens.id_anuncio = anuncios.id limit 1) as url, (SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria limit 1) as categoria FROM anuncios LEFT JOIN usuarios ON usuarios.id = anuncios.id_usuario LEFT JOIN estados ON estados.id = id_estado LEFT JOIN cidades on cidades.id = id_cidade WHERE ".implode(' AND ', $filtrostring)." ORDER BY anuncios.id ");
+
+        if(!empty($filtros['categoria'])){
+            $sql->bindValue(":id_categoria", $filtros['categoria']);
+        }
+        if(!empty($filtros['preço'])){
+            $preco = explode("-", $filtros['preço']);
+            $sql->bindValue(":valor1", $preco[0]);
+            $sql->bindValue(":valor2", $preco[1]);
+        }
+        if(!empty($filtros['estado'])){
+            $sql->bindValue(":estado", $filtros['estado']);
+        }
+        if(!empty($filtros['estados'])){
+            $sql->bindValue(":ufs", $filtros['estados']);
+        }
+        if(!empty($filtros['cidades'])){
+            $sql->bindValue(":cidades", $filtros['cidades']);
+        }
+
+        $sql->execute();
+        return count($sql->fetchAll());
     }
 
     /**

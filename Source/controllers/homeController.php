@@ -38,6 +38,7 @@ class homeController extends controller{
             'categorias' => $categorias,
             'estados' => $e->getEstados(),
             'total_paginas' => $total_paginas,
+            'total_anuncios' => $a->getTotalAnuncios($filtros),
             'anuncios' => $anuncios,
             'filtros' => $filtros,
             'p' => $p,

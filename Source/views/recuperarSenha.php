@@ -20,6 +20,7 @@
                 </li>
             </ul>
         </div>
+        <p id="infocampos">Obs.: Campos com <label><span class="obrigatorio">*</span></label> são de preenchimento obrigatório.</p>
         <input type="submit" value="Alterar Senha" class="btn btn-primary" style="cursor: pointer">
     </form>
 </div>

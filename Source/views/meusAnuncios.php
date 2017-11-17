@@ -4,7 +4,7 @@
     <table class="table table-striped" style="margin-top: 20px">
         <thead>
             <tr>
-                <th>Imagem</th>
+                <th>Foto Principal</th>
                 <th>Titulo</th>
                 <th>Preço</th>
                 <th>Ações</th>

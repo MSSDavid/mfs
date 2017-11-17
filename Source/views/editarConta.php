@@ -66,29 +66,29 @@
         <div class="box-minha-conta-titulo">Dados Cadastrais</div>
         <div class="box-minha-conta-conteudo">
             <form method="POST" onsubmit="return validar()">
-                <label>Nome</label>
+                <label for="nome"><span style="color: red;font-weight: bold">*</span> Nome</label>
                 <input class="form-control" id="nome" name="nome" data-ob="1" data-alt="Nome" value="<?php echo $dados['nome']?>">
-                <label>E-mail</label>
+                <label form="email"><span style="color: red;font-weight: bold">*</span> E-mail</label>
                 <input class="form-control" id="email" name="email" data-ob="1" data-alt="E-mail" value="<?php echo $dados['email']?>">
-                <label>Estado:</label>
+                <label for="estado"><span style="color: red;font-weight: bold">*</span> Estado:</label>
                 <select class="form-control" name="estado" id="estado" data-alt="Estado" data-ob="1">
                     <?php foreach ($estados as $estado):?>
                         <option <?php if($estado['id'] == $dados['id_estado']) echo 'selected' ?> value="<?php echo $estado['id'] ?>"><?php echo $estado['nome'] ?></option>
                     <?php endforeach;?>
                 </select>
-                <label>Cidade:</label>
+                <label for="cidade"><span style="color: red;font-weight: bold">*</span> Cidade:</label>
                 <select class="form-control" name="cidade" id="cidade" data-alt="Cidade" data-ob="1">
                     <?php foreach ($cidades as $cidade):?>
                         <option <?php if($cidade['id'] == $dados['id_cidade']) echo 'selected' ?> value="<?php echo $cidade['id'] ?>"><?php echo $cidade['nome'] ?></option>
                     <?php endforeach;?>
                 </select>
-                <label>Telefone</label>
+                <label for="telefone">Telefone</label>
                 <input class="form-control" id="telefone" name="telefone" data-ob="0" data-alt="Telefone" value="<?php echo $dados['telefone']?>">
-                <label>Celular</label>
+                <label for="celular"><span style="color: red;font-weight: bold">*</span> Celular</label>
                 <input class="form-control" id="celular" name="celular" data-ob="1" data-alt="Celular" value="<?php echo $dados['celular']?>">
-                <label>Senha atual</label>
+                <label for="senha">Senha atual</label>
                 <input type="password" class="form-control" id="senha" name="senha" data-ob="0" data-alt="Senha Atual">
-                <label>Nova Senha</label>
+                <label for="NovaSenha">Nova Senha</label>
                 <input type="password" class="form-control" id="NovaSenha" name="NovaSenha" data-ob="0" data-alt="Nova Senha">
                 <p>Caso queira alterar a senha, basta preencher os campos Senha atual e Nova Senha.</p>
                 <?php
@@ -96,12 +96,9 @@
                     echo $aviso;
                 }
                 ?>
-                <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;display: none' class='alert alert-danger'>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                        </li>
-                    </ul>
+                <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;width: fit-content;display: none' class='alert alert-danger'>
                 </div>
+                <p id="infocampos">Obs.: Campos com <label><span style="color: red;font-weight: bold">*</span></label> são de preenchimento obrigatório.</p>
                 <input type="submit" value="Salvar" style="cursor:pointer;" class="btn btn-md btn-success">
             </form>
         </div>

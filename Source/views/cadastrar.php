@@ -2,19 +2,19 @@
     <form method="POST" style="margin: auto;margin-top: 20px;max-width: 500px" onsubmit="return validar()">
         <h1>Cadastre-se</h1>
         <div class="form-group">
-            <label for="nome">Nome</label>
+            <label for="nome"><span>*</span> Nome</label>
             <input type="text" name="nome" id="nome" class="form-control" data-alt="Nome" data-ob="1">
         </div>
         <div class="form-group">
-            <label for="nome">E-mail</label>
+            <label for="email"><span>*</span> E-mail</label>
             <input type="text" name="email" id="email" class="form-control" data-alt="Email" data-ob="1">
         </div>
         <div class="form-group">
-            <label for="nome">Senha</label>
+            <label for="senha"><span>*</span> Senha</label>
             <input type="password" name="senha" id="senha" class="form-control" data-alt="Senha" data-ob="1">
         </div>
         <div class="form-group">
-            <label>Estado:</label>
+            <label for="estado"><span>*</span> Estado:</label>
             <select class="form-control" name="estado" id="estado" data-alt="Estado" data-ob="1">
                 <option value=""></option>
                 <?php foreach ($estados as $estado):?>
@@ -23,17 +23,17 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Cidade:</label>
+            <label for="cidade"><span>*</span> Cidade:</label>
             <select class="form-control" name="cidade" id="cidade" data-alt="Cidade" data-ob="1">
                 <option value="">Escolha um estado</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="nome">Telefone</label>
+            <label for="telefone">Telefone</label>
             <input type="text" name="telefone" id="telefone" class="form-control" data-alt="Telefone" data-ob="1">
         </div>
         <div class="form-group">
-            <label for="nome">Celular</label>
+            <label for="celular"><span>*</span> Celular</label>
             <input type="text" name="celular" id="celular" class="form-control" data-alt="Celular" data-ob="0">
         </div>
         <?php
@@ -42,11 +42,8 @@
         }
         ?>
         <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;display: none' class='alert alert-danger'>
-            <ul class="list-group">
-                <li class="list-group-item">
-                </li>
-            </ul>
         </div>
+        <p id="infocampos">Obs.: Campos com <label><span style="color: red;font-weight: bold">*</span></label> são de preenchimento obrigatório.</p>
         <input type="submit" value="Cadastrar" class="btn btn-md btn-primary" style="cursor: pointer" data-alt="Botão" data-ob="0">
     </form>
 </div>

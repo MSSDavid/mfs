@@ -5,8 +5,13 @@
     }
 </script>
 <div class="container-fluid" style="margin-top: 15px">
+    <div class="jumbotron">
+        <h1>Bem vindo ao Classi-O, um serviço de classificados online</h1>
+        <h5>Cadastre-se gratuitamente e faça seu anúncio!</h5>
+        <h5>Abaixo explore os últimos anúncios postados</h5>
+    </div>
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <h4 style="margin-bottom: 15px;">Pesquisa Avançada</h4>
             <button class="btn btn-default" id="botao-filtros" style="width: 100%;background-color: #292b2c;color: white;margin-bottom: 10px;">Filtros</button>
             <form id="form-filtros" method="GET" onsubmit="return validarFiltros(this)">
@@ -62,12 +67,13 @@
                 <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;display: none' class='alert alert-danger'>
                 </div>
                 <div class="form-group">
-                    <input style="cursor: pointer" type="submit" value="Filtrar" class="btn btn-info">
+                    <input id="botao-visualizar" style="cursor: pointer" type="submit" value="Filtrar" class="btn btn-info">
                 </div>
             </form>
         </div>
-        <div class="col-sm-9">
-            <h4 style="margin-bottom: 15px;">Últimos Anúncios</h4>
+        <div class="col-md-9">
+            <h4 style="margin-bottom: 0px;">Últimos Anúncios</h4>
+            <span style="display: block; font-weight: 500;color: #555555;margin-left: 5px;font-size: 16px;margin-bottom: 15px;">Resultados: <?php echo $total_anuncios; ?></span>
             <table class="table table-striped">
                 <tbody>
                 <?php foreach($anuncios as $anuncio):?>

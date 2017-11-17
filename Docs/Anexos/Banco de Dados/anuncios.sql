@@ -31,7 +31,7 @@ CREATE TABLE `anuncios` (
   `id_usuario` int(11) NOT NULL,
   `titulo` varchar(150) NOT NULL,
   `dataPublicacao` datetime NOT NULL,
-  `descricao` text NOT NULL,
+  `descricao` text,
   `id_categoria` int(11) NOT NULL,
   `preco` double NOT NULL,
   `estado` int(11) NOT NULL

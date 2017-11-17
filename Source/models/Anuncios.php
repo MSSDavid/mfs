@@ -139,8 +139,12 @@ class Anuncios extends model{
         if(!empty($filtros['categoria'])){
             $filtrostring[] = 'anuncios.id_categoria = :id_categoria';
         }
-        if(!empty($filtros['preço'])){
+        if(!empty($filtros['precoMin']) && !empty($filtros['precoMax'])){
             $filtrostring[] = 'anuncios.preco BETWEEN :valor1 AND :valor2';
+        }else if(!empty($filtros['precoMin'])){
+            $filtrostring[] = 'anuncios.preco >= :valor1';
+        }else if(!empty($filtros['precoMax'])){
+            $filtrostring[] = 'anuncios.preco <= :valor1';
         }
         if(!empty($filtros['estado'])){
             $filtrostring[] = 'anuncios.estado = :estado';
@@ -162,10 +166,17 @@ class Anuncios extends model{
         if(!empty($filtros['categoria'])){
             $sql->bindValue(":id_categoria", $filtros['categoria']);
         }
-        if(!empty($filtros['preço'])){
-            $preco = explode("-", $filtros['preço']);
-            $sql->bindValue(":valor1", $preco[0]);
-            $sql->bindValue(":valor2", $preco[1]);
+        if(!empty($filtros['precoMin']) && !empty($filtros['precoMax'])){
+            $precoMin = str_replace(",", ".", $filtros['precoMin']);
+            $precoMax = str_replace(",", ".", $filtros['precoMax']);
+            $sql->bindValue(":valor1", $precoMin);
+            $sql->bindValue(":valor2", $precoMax);
+        }else if(!empty($filtros['precoMin'])){
+            $precoMin = str_replace(",", ".", $filtros['precoMin']);
+            $sql->bindValue(":valor1", $precoMin);
+        }else if(!empty($filtros['precoMax'])){
+            $precoMax = str_replace(",", ".", $filtros['precoMax']);
+            $sql->bindValue(":valor1", $precoMax);
         }
         if(!empty($filtros['estado'])){
             $sql->bindValue(":estado", $filtros['estado']);

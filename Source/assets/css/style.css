@@ -18,6 +18,7 @@ button{
 }
 
 #confirmacao-exclusao{
+    text-align: center;
     border-radius: 10px;
     position: fixed;
     left: 50%;
@@ -79,9 +80,20 @@ button{
     border-color: #292b2c;
 }
 
+.page-item.active .page-link:hover {
+    background-color: black;
+    border-color: black;
+}
+
 .page-link {
     color: #292b2c;
     border: 1px solid #292b2c;
+}
+
+.page-link:hover {
+    background-color: black;
+    border-color: black;
+    color: white;
 }
 
 #botao-filtros{
@@ -107,7 +119,7 @@ button{
     background-color: black;
 }
 
-@media all and (max-width:576px) {
+@media all and (max-width:768px) {
     #botao-filtros{
         display: block;
     }

@@ -32,7 +32,7 @@ class anunciosController extends controller{
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header("Location: ".BASE_URL);
         }
-        if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+        if(isset($_POST['titulo']) && !empty($_POST['titulo']) && isset($_POST['categoria']) && !empty($_POST['categoria']) && isset($_POST[''])){
             $titulo = addslashes($_POST['titulo']);
             $id_categoria = addslashes($_POST['categoria']);
             $preco = str_replace(",", ".", addslashes($_POST['valor']));

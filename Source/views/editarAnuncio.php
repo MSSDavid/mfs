@@ -5,10 +5,10 @@
 </script>
 <div class="container" style="margin-top: 30px;margin-bottom: 30px">
     <h1>Editar Anúncio</h1>
-    <form method="POST" enctype="multipart/form-data" style="margin-bottom: 20px;margin-top: 20px" role="form">
+    <form method="POST" onsubmit="return validar(this)" style="margin-bottom: 20px;margin-top: 20px" role="form">
         <div class="form-group">
             <label form="categoria"><span>*</span> Categoria</label>
-            <select name="categoria" id="categoria" class="form-control">
+            <select name="categoria" id="categoria" class="form-control" data-ob="1" data-alt="Categoria">
                 <?php
                 foreach ($cats as $cat):?>
                     <option value="<?php echo $cat['id'] ?>" <?php echo ($info['id_categoria'] == $cat['id'])?'selected="selected"':"";?>><?php echo $cat['nome'] ?></option>
@@ -23,15 +23,15 @@
         </div>
         <div class="form-group">
             <label form="titulo"><span>*</span> Preço</label>
-            <input type="text" name="valor" id="valor" class="form-control" value="<?php echo str_replace(".", ",", str_replace(",", "", number_format($info['preco'], 2))); ?>">
+            <input type="text" name="valor" id="valor" class="form-control" value="<?php echo str_replace(".", ",", str_replace(",", "", number_format($info['preco'], 2))); ?>" data-ob="1" data-alt="Preço">
         </div>
         <div class="form-group">
-            <label form="titulo"><span>*</span> Descrição</label>
-            <textarea class="form-control" name="descricao" rows="5" id="descricao"><?php echo $info['descricao']; ?></textarea>
+            <label form="titulo"> Descrição</label>
+            <textarea class="form-control" name="descricao" rows="5" id="descricao" data-ob="0" data-alt="Descrição"><?php echo $info['descricao']; ?></textarea>
         </div>
         <div class="form-group">
             <label form="titulo"><span>*</span> Estado de Conservação</label>
-            <select name="estado" id="estado" class="form-control">
+            <select name="estado" id="estado" class="form-control" data-ob="1" data-alt="Estado de Conservação">
                 <option value="1" <?php echo ($info['estado'] == '1')?'selected="selected"':"";?>>Ruim</option>
                 <option value="2" <?php echo ($info['estado'] == '2')?'selected="selected"':"";?>>Bom</option>
                 <option value="3" <?php echo ($info['estado'] == '3')?'selected="selected"':"";?>>Ótimo</option>
@@ -59,7 +59,9 @@
                 </div>
             </div>
         </div>
-        <input type="submit" class="btn btn-success" style="cursor: pointer;margin-top: 20px" value="Salvar">
-        <a class="btn btn-secondary" style="cursor: pointer;margin-top: 20px;background-color: #cccccc" href="<?php echo BASE_URL;?>/anuncios">Voltar</a>
+        <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;width: fit-content;display: none' class='alert alert-danger'></div>
+        <p id="infocampos" style="margin-bottom: 0; margin-top: 20px">Obs.: Campos com <label><span style="color: red;font-weight: bold">*</span></label> são de preenchimento obrigatório.</p>
+        <input type="submit" class="btn btn-success" style="cursor: pointer;" value="Salvar">
+        <a class="btn btn-secondary" style="cursor: pointer;" href="<?php echo BASE_URL;?>/anuncios">Voltar</a>
     </form>
 </div>

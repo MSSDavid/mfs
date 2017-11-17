@@ -9,16 +9,20 @@ Para acessar o software no ambiente de produção, acesse o link abaixo:
 [https://classi-o.000webhostapp.com/](https://classi-o.000webhostapp.com/)
 
 ## Processo
-O projeto de classificados será desenvolvido de acordo com um processo personalizado baseado no Scrum. Para acessar mais detalhes do processo clique [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Processo/Processo.md)
+O projeto de classificados será desenvolvido de acordo com um processo personalizado baseado no Scrum. Para acessar mais detalhes do processo clique [aqui](https://github.com/MSSDavid/mfs/blob/master/Documentos/Processo/Processo.md)
+
+## Documentação
+Para acessar a documentação do software clique no link abaixo  
+[https://mssdavid.github.io/mfs/](https://mssdavid.github.io/mfs/)
 
 ### Cronograma
-O cronograma do projeto está detalhado [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/cronograma.md)
+O cronograma do projeto está detalhado [aqui](https://github.com/MSSDavid/mfs/blob/master/Documentos/cronograma.md)
 
 ## Backlog do Produto
-As histórias de usuários referente ao backlog do produto, pode ser acessado [aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Hist%C3%B3rias%20de%20Usu%C3%A1rio.md)
+As histórias de usuários referente ao backlog do produto, pode ser acessado [aqui](https://github.com/MSSDavid/mfs/blob/master/Documentos/Hist%C3%B3rias%20de%20Usu%C3%A1rio.md)
 
 ### Arquitetura
-A arquitetura do projeto pode ser acessada [clicando aqui](https://github.com/MSSDavid/mfs/blob/master/Docs/Arquitetura.md)
+A arquitetura do projeto pode ser acessada [clicando aqui](https://github.com/MSSDavid/mfs/blob/master/Documentos/Arquitetura.md)
 
 
 ## Integrantes

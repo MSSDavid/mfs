@@ -1,9 +1,15 @@
+<script type="text/javascript">
+    window.onload = function () {
+        $("#precoMin").mask("#0,00", {reverse: true});
+        $("#precoMax").mask("#0,00", {reverse: true});
+    }
+</script>
 <div class="container-fluid" style="margin-top: 15px">
     <div class="row">
         <div class="col-sm-3">
             <h4 style="margin-bottom: 15px;">Pesquisa Avançada</h4>
             <button class="btn btn-default" id="botao-filtros" style="width: 100%;background-color: #292b2c;color: white;margin-bottom: 10px;">Filtros</button>
-            <form id="form-filtros" method="GET">
+            <form id="form-filtros" method="GET" onsubmit="return validarFiltros(this)">
                 <div class="form-group">
                     <label for="categoria">Estado</label>
                     <select name="filtros[estados]" id="estado" class="form-control">
@@ -35,18 +41,13 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="categoria">Preço</label>
-                    <select name="filtros[preço]" class="form-control">
-                        <option></option>
-                        <option value="0.00-50.00" <?php echo($filtros['preço'] == '0.00-50.00')?'selected="selected"':''?>>R$ 0,00 - R$ 50,00</option>
-                        <option value="51.00-250.00" <?php echo($filtros['preço'] == '51.00-250.00')?'selected="selected"':''?>>R$ 51,00 - R$ 250,00</option>
-                        <option value="251.00-500.00" <?php echo($filtros['preço'] == '251.00-500.00')?'selected="selected"':''?>>R$ 251,00 - R$ 500,00</option>
-                        <option value="501.00-1000.00" <?php echo($filtros['preço'] == '501.00-1000.00')?'selected="selected"':''?>>R$ 501,00 - R$ 1.000,00</option>
-                        <option value="1001.00-5000.00" <?php echo($filtros['preço'] == '1001.00-5000.00')?'selected="selected"':''?>>R$ 1.001,00 - R$ 5.000,00</option>
-                        <option value="5001.00-10000.00" <?php echo($filtros['preço'] == '5001.00-10000.00')?'selected="selected"':''?>>R$ 5.001,00 - R$ 10.000,00</option>
-                        <option value="10001.00-20000.00" <?php echo($filtros['preço'] == '10001.00-20000.00')?'selected="selected"':''?>>R$ 1.001,00 - R$ 20.000,00</option>
-                    </select>
+                <div class="form-group" style="display: -webkit-box;">
+                    <label for="precoMin">Faixa de Preço</label>
+                    <br><p style="margin-bottom: 10px;float: left;line-height: 38px;margin-right: 11px;">Preço Min R$</p>
+                    <input <?php if(!empty($filtros['precoMin'])) echo 'value="'.$filtros["precoMin"].'"'; ?> style="width: 100px;float: left;margin-bottom: 10px;" type="text" name="filtros[precoMin]" id="precoMin" class="form-control">
+                    <br>
+                    <p style="margin: 0;float: left;line-height: 38px;margin-right: 10px;">Preço Max R$</p>
+                    <input <?php if(!empty($filtros['precoMax'])) echo 'value="'.$filtros["precoMax"].'"'; ?> type="text" style="width: 100px;float: left;" name="filtros[precoMax]" id="precoMax" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="categoria">Estado de Conservação</label>
@@ -57,6 +58,8 @@
                         <option value="3" <?php echo($filtros['estado'] == '3')?'selected="selected"':''?>>Ótimo</option>
                         <option value="4" <?php echo($filtros['estado'] == '4')?'selected="selected"':''?>>Novo</option>
                     </select>
+                </div>
+                <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;display: none' class='alert alert-danger'>
                 </div>
                 <div class="form-group">
                     <input style="cursor: pointer" type="submit" value="Filtrar" class="btn btn-info">

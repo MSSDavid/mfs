@@ -77,7 +77,48 @@ final class AnunciosTest extends PHPUnit_Extensions_Database_TestCase{
         $max = 30;
         $filtros = array(
             'categoria' => '1',
-            'preço' => '50-200',
+            'precoMin' => '50,00',
+            'precoMax' => '250,00',
+            'estado' => '1',
+            'estados' => '1',
+            'cidades' => '1'
+        );
+        $result = $a->getUltimosAnuncios($page, $max, $filtros);
+        $this->assertEquals(1, $result[0]['id']);
+        $this->assertEquals(1, $result[0]['id_usuario']);
+        $this->assertEquals("imagem_anuncio", $result[0]['url']);
+        $this->assertEquals('Teste Titulo', $result[0]['titulo']);
+        $this->assertEquals('2017-10-25 19:30:00', $result[0]['dataPublicacao']);
+        $this->assertEquals('Descrição do Anúncio', $result[0]['descricao']);
+        $this->assertEquals('1', $result[0]['id_categoria']);
+        $this->assertEquals(100.50, $result[0]['preco']);
+        $this->assertEquals('1', $result[0]['estado']);
+
+        //Teste do primeiro else if
+        $filtros = array(
+            'categoria' => '1',
+            'precoMin' => '50,00',
+            'precoMax' => '',
+            'estado' => '1',
+            'estados' => '1',
+            'cidades' => '1'
+        );
+        $result = $a->getUltimosAnuncios($page, $max, $filtros);
+        $this->assertEquals(1, $result[0]['id']);
+        $this->assertEquals(1, $result[0]['id_usuario']);
+        $this->assertEquals("imagem_anuncio", $result[0]['url']);
+        $this->assertEquals('Teste Titulo', $result[0]['titulo']);
+        $this->assertEquals('2017-10-25 19:30:00', $result[0]['dataPublicacao']);
+        $this->assertEquals('Descrição do Anúncio', $result[0]['descricao']);
+        $this->assertEquals('1', $result[0]['id_categoria']);
+        $this->assertEquals(100.50, $result[0]['preco']);
+        $this->assertEquals('1', $result[0]['estado']);
+
+        //Teste do segundo else if
+        $filtros = array(
+            'categoria' => '1',
+            'precoMin' => '',
+            'precoMax' => '250,00',
             'estado' => '1',
             'estados' => '1',
             'cidades' => '1'

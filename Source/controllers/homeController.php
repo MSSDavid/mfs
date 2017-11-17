@@ -20,7 +20,8 @@ class homeController extends controller{
         $cid = new Cidades();
         $filtros = array(
             'categoria' => '',
-            'preço' => '',
+            'precoMin' => '',
+            'precoMax' => '',
             'estado' => '',
             'estados' => '',
             'cidades' => ''

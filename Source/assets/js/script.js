@@ -112,6 +112,16 @@ function limpar()
     location.reload();
 }
 
+function validarFiltros(){
+    if(parseFloat($('#precoMin').val()) > parseFloat($('#precoMax').val())){
+        msg = 'O mínimo deve ser menor que o máximo.';
+        $("#retorno").slideDown().html(msg);
+        return false;
+    }else{
+        return true;
+    }
+}
+
 function validarFormRecuperarSenha(){
     msg = '<ul class="list-group">';
     if(validaForm() == -1){

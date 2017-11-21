@@ -35,7 +35,7 @@ CREATE TABLE `usuarios` (
   `celular` varchar(20) DEFAULT NULL,
   `id_estado` int(11) NOT NULL,
   `id_cidade` int(11) NOT NULL,
-  `hashRecuperacao` varchar(200) DEFAULT NULL,
+  `hashRecuperacao` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
